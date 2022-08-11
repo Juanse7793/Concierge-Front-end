@@ -1,5 +1,8 @@
 * {
   box-sizing: border-box;
+
+  --theme-lime: #97bf0f;
+  --theme-grey: #efefef;
 }
 
 .App {
@@ -13,11 +16,11 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
+    animation: float infinite 3s ease-in-out;
   }
 }
 
-@keyframes App-logo-float {
+@keyframes float {
   0% {
     transform: translateY(0);
   }
@@ -51,8 +54,11 @@
 
 .circle {
   position: relative;
-  height: 200px;
-  width: 200px;
+
+  --diameter: 200px;
+
+  height: var(--diameter);
+  width: var(--diameter);
   border-radius: 50%;
   overflow: hidden;
   border: 4px groove #fff;
@@ -60,11 +66,13 @@
 }
 
 .event-card:hover .circle {
-  height: 250px;
-  width: 250px;
+  --growth: 50px;
+
+  height: calc(var(--diameter) + var(--growth));
+  width: calc(var(--diameter) + var(--growth));
   border-radius: 1rem;
-  border-width: 0px;
-  box-shadow: 0 0 0px 8px white inset;
+  border-width: 0;
+  box-shadow: 0 0 0 8px white inset;
 }
 
 .circle > img {
@@ -78,13 +86,15 @@
 
 .event-card-title {
   /* margin-bottom: 0.75rem; */
+
   /* padding-bottom: 0.75rem; */
+
   /* border-bottom: 2px dotted lightgray; */
 }
 
 .event-card-details {
   margin: 0;
-  font-size: 0rem;
+  font-size: 0;
   opacity: 0;
   transition: all 1s ease-in-out;
 }
@@ -94,3 +104,31 @@
   opacity: 0.3;
 }
 
+.semi {
+  --bs: 1rem;
+  --bl: 3rem;
+  --br: 2rem;
+
+  background-color: var(--theme-lime);
+  color: white;
+  padding: var(--bs) var(--bs) var(--bs) var(--bl);
+  border-radius: 0 var(--br) var(--br) 0;
+  font-weight: bolder;
+  border: none;
+  box-shadow: none;
+}
+
+.semi:disabled { background-color: var(--theme-grey); }
+
+.semi:enabled:hover { animation: float infinite 3s ease-in-out; }
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(10px) scale(1.1); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.semi.next {
+  border-radius: var(--br) 0 0 var(--br);
+  padding: var(--bs) var(--bl) var(--bs) var(--bs);
+}
