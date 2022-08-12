@@ -119,3 +119,39 @@
   border-radius: var(--br) 0 0 var(--br);
   padding: var(--bs) var(--bl) var(--bs) var(--bs);
 }
+
+/* DetailsPage */
+#details {
+  display: flex;
+}
+
+.side {
+  padding: 2rem;
+}
+
+.left image {
+  max-width: 75vw;
+}
+
+.right * {
+  text-align: right;
+}
+
+.right ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+}
+
+.right ul li {
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.right ul li :first-child {
+  margin-right: 3rem;
+}
+.right ul li:nth-child(odd) {
+  background-color: #e2e3e5;
+}

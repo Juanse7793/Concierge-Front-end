@@ -19,7 +19,7 @@ const MainPage = () => {
   };
 
   return (
-    <div>
+    <section>
       <div className="title-box">
         <h1 className="title">Exiting New Events!</h1>
         <h2 className="subtitle">Please select an event</h2>
@@ -29,6 +29,7 @@ const MainPage = () => {
         {sliceEvents.map((event) => (
           <EventCard
             key={event.id}
+            id={event.id}
             name={event.name}
             image={event.image}
             location={event.location}
@@ -37,7 +38,7 @@ const MainPage = () => {
         ))}
         <SemiBtn arrow="next" disabled={slice > events.length - step} func={nextSlice} />
       </div>
-    </div>
+    </section>
   );
 };
 
