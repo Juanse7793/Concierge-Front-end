@@ -1,41 +1,121 @@
+* {
+  box-sizing: border-box;
+
+  --theme-lime: #97bf0f;
+  --theme-grey: #efefef;
+  --theme-dark-grey: #8c8c8c;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Main Page */
+.subtitle {
+  font-size: 1rem;
+  color: var(--theme-dark-grey);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+#event-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
-.App-header {
-  min-height: 100vh;
+.event-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 1rem;
+  margin: 1rem;
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
+.circle {
+  --diameter: 200px;
+
+  position: relative;
+  height: var(--diameter);
+  width: var(--diameter);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px groove var(--theme-lime);
+  transition: all 1s ease-in-out;
 }
 
-@keyframes App-logo-float {
+.event-card:hover .circle {
+  --growth: 50px;
+
+  height: calc(var(--diameter) + var(--growth));
+  width: calc(var(--diameter) + var(--growth));
+  border-radius: 1rem;
+  box-shadow: 0 0 0 8px white inset;
+}
+
+.circle > img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  object-position: center;
+  transition: all 1s ease-in-out;
+}
+
+.event-card-details {
+  margin: 0;
+  font-size: 0;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+
+.event-card:hover .event-card-details {
+  font-size: 1rem;
+  opacity: 0.3;
+}
+
+.semi {
+  --bs: 1rem;
+  --bl: 3rem;
+  --br: 2rem;
+
+  cursor: pointer;
+  background-color: var(--theme-lime);
+  color: white;
+  padding: var(--bs) var(--bs) var(--bs) var(--bl);
+  border-radius: 0 var(--br) var(--br) 0;
+  font-weight: bolder;
+  border: none;
+  box-shadow: none;
+}
+
+.semi:disabled {
+  background-color: var(--theme-grey);
+}
+
+.semi:enabled:hover {
+  animation: float infinite 3s ease-in-out;
+}
+
+@keyframes float {
   0% {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    filter: brightness(1);
   }
 
   50% {
-    transform: translateY(10px);
+    transform: translateY(10px) scale(1.1);
+    filter: brightness(1.2);
   }
 
   100% {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    filter: brightness(1);
   }
+}
+
+.semi.next {
+  border-radius: var(--br) 0 0 var(--br);
+  padding: var(--bs) var(--bl) var(--bs) var(--bs);
 }
