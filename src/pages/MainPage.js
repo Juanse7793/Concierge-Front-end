@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import EventCard from '../components/EventCard';
-import SemiBtn from '../components/SemiBtn';
+import Button from '../components/Button';
 
 const MainPage = () => {
   const events = useSelector((state) => state.events);
   const [slice, setSlice] = useState(0);
   const step = 3;
+  // const sliceEventsPrev = events.slice(slice - step, slice);
   const sliceEvents = events.slice(slice, slice + step);
+  // const sliceEventsNext = events.slice(slice + step, slice + (2 * step));
 
   const prevSlice = () => {
     if (slice <= step) setSlice(0);
@@ -19,24 +21,15 @@ const MainPage = () => {
   };
 
   return (
-    <section>
+    <section className="column">
       <div className="title-box">
-        <h1 className="title">Exiting New Events!</h1>
-        <h2 className="subtitle">Please select an event</h2>
+        <h1 className="title">EXCITING NEW EVENTS!</h1>
+        <h2 className="subtitle">Please select an event to begin:</h2>
       </div>
-      <div id="event-list">
-        <SemiBtn arrow="prev" disabled={slice < step} func={prevSlice} />
-        {sliceEvents.map((event) => (
-          <EventCard
-            key={event.id}
-            id={event.id}
-            name={event.name}
-            image={event.image}
-            location={event.location}
-            price={event.price}
-          />
-        ))}
-        <SemiBtn arrow="next" disabled={slice > events.length - step} func={nextSlice} />
+      <div className="events-list row">
+        <Button text="◁" disabled={slice < step} func={prevSlice} className="semi prev" />
+        {sliceEvents.map((event) => (<EventCard key={event.id} event={event} />))}
+        <Button text="▷" disabled={slice > events.length - step} func={nextSlice} className="semi next" />
       </div>
     </section>
   );

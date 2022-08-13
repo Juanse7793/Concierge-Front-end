@@ -1,6 +1,7 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import ListRow from '../components/ListRow';
 
 const DetailsPage = () => {
   const { id } = useParams();
@@ -8,32 +9,19 @@ const DetailsPage = () => {
     .find((event) => event.id.toString() === id);
 
   return (
-    <section id="details">
+    <section className="row details">
       <div className="side left"><img src={event.image} alt={event.name} /></div>
-      <div className="side right">
-        <h1>{event.name.toUpperCase()}</h1>
-        <ul>
-          <li>
-            <span>Travel </span>
-            <span>
-              $
-              {event.price}
-            </span>
-          </li>
-          <li>
-            <span>Housing and Food </span>
-            <span>$100</span>
-          </li>
-          <li>
-            <span>Total </span>
-            <span>$100</span>
-          </li>
-          <li>
-            <span>Duration </span>
-            <span>{event.end - event.start}</span>
-            {/* TODO: Add Unit */}
-          </li>
-        </ul>
+      <div className="side right column">
+        <div>
+          <h1>{event.name.toUpperCase()}</h1>
+          <ul className="column">
+            <ListRow caption="Travel Expenses" text={`$${event.price}`} />
+            <ListRow caption="Housing and Food" text="$100" />
+            <ListRow caption="Total" text={`$${event.price + 100}`} />
+            <ListRow caption="Duration" text={`${(event.end - event.start) / (1000 * 60 * 60 * 24)} days`} />
+          </ul>
+        </div>
+        <Link to="./reserve" className="green link">Reserve</Link>
       </div>
     </section>
   );
