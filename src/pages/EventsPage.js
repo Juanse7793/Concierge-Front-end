@@ -13,7 +13,7 @@ const EventsPage = () => {
   return (
     <div>
       <Sidebar />
-      <section className="main">
+      <section>
         {events.map((event) => (
           <ul key={event.id}>
             <li id="event-name">
