@@ -7,8 +7,9 @@ const initialState = [
     location: 'loc',
     image: '/images/carrington_event.jpg',
     price: 234,
-    start: Date.now() - 24,
-    end: Date.now(),
+    start: new Date(2022, 8, 1),
+    end: new Date(2022, 8, 5),
+    reserved: false,
   },
   {
     name: 'event2',
@@ -16,8 +17,9 @@ const initialState = [
     location: 'loc',
     image: '/images/musical_festival.jpg',
     price: 234,
-    start: Date.now() - 24,
-    end: Date.now(),
+    start: new Date(2022, 8, 1),
+    end: new Date(2022, 8, 3),
+    reserved: false,
   },
   {
     name: 'event3',
@@ -25,8 +27,9 @@ const initialState = [
     location: 'loc',
     image: '/images/manchester-international-festival.jpg',
     price: 234,
-    start: Date.now() - 24,
+    start: new Date(2022, 8, 10),
     end: Date.now(),
+    reserved: true,
   },
   {
     name: 'event4',
@@ -34,8 +37,9 @@ const initialState = [
     location: 'loc',
     image: '/images/carrington_event.jpg',
     price: 234,
-    start: Date.now() - 24,
-    end: Date.now(),
+    start: new Date(2022, 8, 1),
+    end: new Date(2022, 8, 6),
+    reserved: true,
   },
   {
     name: 'event5',
@@ -43,8 +47,9 @@ const initialState = [
     location: 'loc',
     image: '/images/musical_festival.jpg',
     price: 234,
-    start: Date.now() - 24,
-    end: Date.now(),
+    start: new Date(2022, 8, 1),
+    end: new Date(2022, 8, 2),
+    reserved: true,
   },
 ];
 
