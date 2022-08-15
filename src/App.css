@@ -155,3 +155,25 @@
 .right ul li:nth-child(odd) {
   background-color: #e2e3e5;
 }
+
+.side-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: #8c8c8c 1px solid;
+  width: 20%;
+  height: 100vh;
+}
+
+.main{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-section {
+  width: 80%;
+  height: 100vh;
+}

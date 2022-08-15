@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import EventCard from '../components/EventCard';
 import SemiBtn from '../components/SemiBtn';
+import Sidebar from '../components/Sidebar';
 
 const MainPage = () => {
   const events = useSelector((state) => state.events);
@@ -19,26 +20,33 @@ const MainPage = () => {
   };
 
   return (
-    <section>
-      <div className="title-box">
-        <h1 className="title">Exiting New Events!</h1>
-        <h2 className="subtitle">Please select an event</h2>
-      </div>
-      <div id="event-list">
-        <SemiBtn arrow="prev" disabled={slice < step} func={prevSlice} />
-        {sliceEvents.map((event) => (
-          <EventCard
-            key={event.id}
-            id={event.id}
-            name={event.name}
-            image={event.image}
-            location={event.location}
-            price={event.price}
+    <div className="main">
+      <Sidebar />
+      <section className="main-section">
+        <div className="title-box">
+          <h1 className="title">Exiting New Events!</h1>
+          <h2 className="subtitle">Please select an event</h2>
+        </div>
+        <div id="event-list">
+          <SemiBtn arrow="prev" disabled={slice < step} func={prevSlice} />
+          {sliceEvents.map((event) => (
+            <EventCard
+              key={event.id}
+              id={event.id}
+              name={event.name}
+              image={event.image}
+              location={event.location}
+              price={event.price}
+            />
+          ))}
+          <SemiBtn
+            arrow="next"
+            disabled={slice > events.length - step}
+            func={nextSlice}
           />
-        ))}
-        <SemiBtn arrow="next" disabled={slice > events.length - step} func={nextSlice} />
-      </div>
-    </section>
+        </div>
+      </section>
+    </div>
   );
 };
 
