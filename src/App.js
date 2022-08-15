@@ -5,6 +5,7 @@ import {
 import './App.css';
 import MainPage from './pages/MainPage';
 import DetailsPage from './pages/DetailsPage';
+import AddEvent from './components/AddEvent';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<MainPage />} />
           <Route path="/events/:id" element={<DetailsPage />} />
+          <Route path="/new-event" element={<AddEvent />} />
         </Routes>
       </Router>
     </div>

@@ -249,3 +249,28 @@ li.row :first-child {
 .sign-out:hover {
   background-color: #5b1616;
 }
+
+/* Add event page */
+
+.add-event-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100vh;
+  background: url(/public/images/musical_festival.jpg), var(--theme-lime);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: soft-light; 
+}
+
+.add-event-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100vh;
+}
+
