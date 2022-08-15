@@ -232,6 +232,7 @@ li.row :first-child {
   font-size: 15px;
   height: 40px;
   width: 110px;
+}
 
 .side-bar-container {
   display: flex;
@@ -282,5 +283,4 @@ li.row :first-child {
 
 .sign-out:hover {
   background-color: #5b1616;
-
 }
