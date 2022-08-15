@@ -7,7 +7,7 @@ import Sidebar from '../components/Sidebar';
 const DetailsPage = () => {
   const { id } = useParams();
   const event = useSelector((state) => state.events).find(
-    (event) => event.id.toString() === id
+    (event) => event.id.toString() === id,
   );
 
   return (

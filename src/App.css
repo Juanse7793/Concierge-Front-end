@@ -209,7 +209,7 @@ li.row :first-child {
   height: 100vh;
 }
 
-.main{
+.main {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -230,7 +230,7 @@ li.row :first-child {
   color: #2c2c2c;
 }
 
-.body-titles:not(:last-child):hover h3{
+.body-titles:not(:last-child):hover h3 {
   color: var(--theme-grey);
   background-color: var(--theme-lime);
   border-radius: 10px;
