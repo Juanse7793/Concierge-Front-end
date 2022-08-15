@@ -195,3 +195,38 @@ li.row {
 li.row :first-child {
   margin-right: 3rem;
 }
+
+#event-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background: #fff;
+  border: 1px solid #e2e3e5;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.delete-btn {
+  cursor: pointer;
+  height: 35px;
+  width: 100px;
+  background: #cc0003;
+  color: #fff;
+  padding: 3px;
+  border: 1px solid #cc0003;
+  border-radius: 10px;
+  transition: all 500ms;
+}
+
+.delete-btn:hover {
+  cursor: pointer;
+  background: #fff;
+  color: #cc0003;
+  border: 1px solid #cc0003;
+  font-size: 15px;
+  height: 40px;
+  width: 110px;
+}
