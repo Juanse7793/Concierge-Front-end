@@ -45,7 +45,8 @@ section {
 /* Carausel */
 .events-list {
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
+  width: 100%;
 }
 
 /* Event */
@@ -153,7 +154,9 @@ section {
 
 /* DetailsPage */
 .details {
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .side {
@@ -229,4 +232,55 @@ li.row :first-child {
   font-size: 15px;
   height: 40px;
   width: 110px;
+
+.side-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-right: #8c8c8c 1px solid;
+  width: 20%;
+  height: 100vh;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 100vh;
+}
+
+.body-titles {
+  text-decoration: none;
+  color: #2c2c2c;
+}
+
+.body-titles:not(:last-child):hover h3 {
+  color: var(--theme-grey);
+  background-color: var(--theme-lime);
+  border-radius: 10px;
+  padding: 0.25rem;
+}
+
+.sign-out {
+  background-color: #c12828;
+  color: white;
+  padding: 0.25rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: none;
+}
+
+.sign-out:hover {
+  background-color: #5b1616;
+
 }
