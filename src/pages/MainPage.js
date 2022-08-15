@@ -6,7 +6,8 @@ import Button from '../components/Button';
 const MainPage = () => {
   const events = useSelector((state) => state.events);
   const [slice, setSlice] = useState(0);
-  const step = 3;
+  const step = 3; // Math.floor((window.innerWidth - (86 * 2)) / 282);
+  // console.log(step);
   // const sliceEventsPrev = events.slice(slice - step, slice);
   const sliceEvents = events.slice(slice, slice + step);
   // const sliceEventsNext = events.slice(slice + step, slice + (2 * step));

@@ -10,7 +10,10 @@ const DetailsPage = () => {
 
   return (
     <section className="row details">
-      <div className="side left"><img src={event.image} alt={event.name} /></div>
+      <div className="side left column">
+        <img src={event.image} alt={event.name} />
+        <Link to="/" className="semi prev green">◁</Link>
+      </div>
       <div className="side right column">
         <div>
           <h1>{event.name.toUpperCase()}</h1>
@@ -21,7 +24,7 @@ const DetailsPage = () => {
             <ListRow caption="Duration" text={`${(event.end - event.start) / (1000 * 60 * 60 * 24)} days`} />
           </ul>
         </div>
-        <Link to="./reserve" className="green link">Reserve</Link>
+        <Link to="./reserve" className="green">Reserve</Link>
       </div>
     </section>
   );

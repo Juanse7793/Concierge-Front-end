@@ -159,10 +159,16 @@ section {
   padding: 2rem;
 }
 
+.left {
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
 .left > img {
   max-width: 60vw;
   max-height: calc(100vh - 13rem);
   border: 4px groove var(--theme-lime);
+  margin-bottom: 1rem;
 }
 
 .right {
