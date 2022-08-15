@@ -36,6 +36,13 @@ section {
   min-height: 100vh;
 }
 
+.background {
+  background: url(/public/images/florence-italy.jpg), var(--theme-lime);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+}
+
 /* Main Page */
 .subtitle {
   font-size: 0.9rem;
@@ -99,6 +106,8 @@ section {
   opacity: 0.3;
 }
 
+input,
+.white,
 .green {
   --long-end: 3rem;
   --curve: 2rem;
@@ -194,4 +203,32 @@ li.row {
 
 li.row :first-child {
   margin-right: 3rem;
+}
+
+/* Reserve Page */
+.reserve {
+  /* --imgsrc: url(/public/images/florence-italy.png); */
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 550px;
+}
+
+input {
+  border: 2px solid white;
+  margin: 1rem;
+  margin-bottom: 0;
+}
+
+.white {
+  background-color: white;
+  color: var(--theme-lime);
 }
