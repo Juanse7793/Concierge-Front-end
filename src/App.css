@@ -21,7 +21,6 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
 }
 
 .event-card {
@@ -183,6 +182,22 @@
   color: #2c2c2c;
 }
 
-.body-titles:hover {
-  text-decoration: underline;
+.body-titles:not(:last-child):hover h3{
+  color: var(--theme-grey);
+  background-color: var(--theme-lime);
+  border-radius: 10px;
+  padding: 0.25rem;
+}
+
+.sign-out {
+  background-color: #c12828;
+  color: white;
+  padding: 0.25rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: none;
+}
+
+.sign-out:hover {
+  background-color: #5b1616;
 }

@@ -16,7 +16,7 @@ function Sidebar() {
         <a href="/" className="body-titles"><h3>New Event</h3></a>
         <a href="/" className="body-titles"><h3>Remove Event</h3></a>
         <a href="/" className="body-titles"><h3>About</h3></a>
-        <button type="submit">Sign Out</button>
+        <button type="submit" className="sign-out"><h3>Sign Out</h3></button>
       </div>
       <div className="side-bar-footer">
         <div className="social-media">
