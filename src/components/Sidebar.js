@@ -11,12 +11,11 @@ function Sidebar() {
         <img src={Concierge} alt="Concierge Logo" />
       </div>
       <div className="side-bar-body">
-        <h3>Home</h3>
-        <h3>Reservations</h3>
-        <h3>Events</h3>
-        <h3>New Event</h3>
-        <h3>Remove Event</h3>
-        <h3>About</h3>
+        <a href="/" className="body-titles"><h3>Home</h3></a>
+        <a href="/" className="body-titles"><h3>My Reservations</h3></a>
+        <a href="/" className="body-titles"><h3>New Event</h3></a>
+        <a href="/" className="body-titles"><h3>Remove Event</h3></a>
+        <a href="/" className="body-titles"><h3>About</h3></a>
         <button type="submit">Sign Out</button>
       </div>
       <div className="side-bar-footer">
