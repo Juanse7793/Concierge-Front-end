@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteEvent } from '../redux/reducers/events';
+import Sidebar from '../components/Sidebar';
 
 const EventsPage = () => {
   const events = useSelector((state) => state.events);
@@ -11,14 +12,17 @@ const EventsPage = () => {
 
   return (
     <div>
-      {events.map((event) => (
-        <ul key={event.id}>
-          <li id="event-name">
-            <p>{event.name}</p>
-            <button type="button" className="delete-btn" id={event.id} onClick={deleteEventHandler}>Delete</button>
-          </li>
-        </ul>
-      ))}
+      <Sidebar />
+      <section className="main">
+        {events.map((event) => (
+          <ul key={event.id}>
+            <li id="event-name">
+              <p>{event.name}</p>
+              <button type="button" className="delete-btn" id={event.id} onClick={deleteEventHandler}>Delete</button>
+            </li>
+          </ul>
+        ))}
+      </section>
     </div>
   );
 };
