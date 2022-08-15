@@ -6,8 +6,7 @@ const EventsPage = () => {
   const dispatch = useDispatch();
 
   const deleteEventHandler = (e) => {
-    const id = e.target.getAttribute('id');
-    dispatch(deleteEvent(id));
+    dispatch(deleteEvent(Number(e.target.id)));
   };
 
   return (
