@@ -5,6 +5,7 @@ import {
 import './App.css';
 import MainPage from './pages/MainPage';
 import DetailsPage from './pages/DetailsPage';
+import EventsPage from './pages/EventsPage';
 import ReservePage from './pages/ReservePage';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/" element={<MainPage />} />
           <Route exact path="/events/:id" element={<DetailsPage />} />
           <Route path="/events/:id/reserve" element={<ReservePage />} />
+          <Route exact path="all-events" element={<EventsPage />} />
         </Routes>
       </Router>
     </div>
