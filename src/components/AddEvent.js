@@ -38,7 +38,7 @@ function AddEvent() {
           value={valueName}
           onChange={(e) => handleChangeName(e.target.value)}
           sx={sx}
-          id="event-name"
+          id="event-name-input"
           label="Event Name"
           margin="normal"
         />
@@ -46,7 +46,7 @@ function AddEvent() {
           value={valueLocation}
           onChange={(e) => handleChangeLocation(e.target.value)}
           sx={sx}
-          id="event-location"
+          id="event-location-input"
           label="Event Location"
           margin="normal"
         />
@@ -54,7 +54,7 @@ function AddEvent() {
           value={valuePrice}
           onChange={(e) => handleChangePrice(e.target.value)}
           sx={sx}
-          id="event-price"
+          id="event-price-input"
           label="Event Price"
           margin="normal"
         />
