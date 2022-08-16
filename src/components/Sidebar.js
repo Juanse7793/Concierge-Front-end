@@ -12,9 +12,9 @@ function Sidebar() {
       </div>
       <div className="side-bar-body">
         <a href="/" className="body-titles"><h3>Home</h3></a>
-        <a href="/" className="body-titles"><h3>My Reservations</h3></a>
-        <a href="/" className="body-titles"><h3>New Event</h3></a>
-        <a href="/" className="body-titles"><h3>Remove Event</h3></a>
+        <a href="/my-reservations" className="body-titles"><h3>My Reservations</h3></a>
+        <a href="/new-event" className="body-titles"><h3>New Event</h3></a>
+        <a href="/all-events" className="body-titles"><h3>Remove Event</h3></a>
         <a href="/" className="body-titles"><h3>About</h3></a>
         <button type="submit" className="sign-out"><h3>Sign Out</h3></button>
       </div>

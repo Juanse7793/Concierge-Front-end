@@ -8,6 +8,7 @@ import DetailsPage from './pages/DetailsPage';
 import EventsPage from './pages/EventsPage';
 import ReservePage from './pages/ReservePage';
 import AddEvent from './components/AddEvent';
+import ReservationsPage from './components/ReservationsPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/events/:id/reserve" element={<ReservePage />} />
           <Route exact path="/all-events" element={<EventsPage />} />
           <Route path="/new-event" element={<AddEvent />} />
+          <Route path="/my-reservations" element={<ReservationsPage />} />
         </Routes>
       </Router>
     </div>
