@@ -7,8 +7,25 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 function AddEvent() {
   const [valueStart, setValue1] = React.useState(null);
   const [valueEnd, setValue2] = React.useState(null);
+  const [valueName, setName] = React.useState(null);
+  const [valueLocation, setLocation] = React.useState(null);
+  const [valuePrice, setPrice] = React.useState(null);
+
   const sx = {
-    width: '500px', color: 'black',
+    width: '500px',
+    color: 'black',
+  };
+
+  const handleChangeName = (value) => {
+    setName(value);
+  };
+
+  const handleChangeLocation = (value) => {
+    setLocation(value);
+  };
+
+  const handleChangePrice = (value) => {
+    setPrice(value);
   };
 
   return (
@@ -18,13 +35,29 @@ function AddEvent() {
       </div>
       <form className="add-event-form">
         <TextField
+          value={valueName}
+          onChange={(e) => handleChangeName(e.target.value)}
           sx={sx}
           id="event-name"
           label="Event Name"
           margin="normal"
         />
-        <TextField sx={sx} id="event-location" label="Event Location" margin="normal" />
-        <TextField sx={sx} id="event-price" label="Event Price" margin="normal" />
+        <TextField
+          value={valueLocation}
+          onChange={(e) => handleChangeLocation(e.target.value)}
+          sx={sx}
+          id="event-location"
+          label="Event Location"
+          margin="normal"
+        />
+        <TextField
+          value={valuePrice}
+          onChange={(e) => handleChangePrice(e.target.value)}
+          sx={sx}
+          id="event-price"
+          label="Event Price"
+          margin="normal"
+        />
 
         <div className="add-event-dates">
           <h2 className="add-event-dates-title">Event dates</h2>
