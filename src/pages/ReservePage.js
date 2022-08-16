@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Sidebar from '../components/Sidebar';
+import ReserveText from '../components/ReserveText';
 
 const ReservePage = () => {
   const { id } = useParams();
@@ -32,23 +33,7 @@ const ReservePage = () => {
         <div className="center">
           <h1>{`BOOK A TICKET TO ${event.name.toUpperCase()}`}</h1>
           <hr />
-          <p>
-            Hello and welcome to the
-            {' '}
-            <b>CONCIERGE EVENT RESERVATION.</b>
-            {' '}
-            Please enter the date you would like to attend and the city you will
-            be traveling from in the form below to book an exclusive, all
-            inclusive trip to the event.
-            {' '}
-            <b>CONCIERGE</b>
-            {' '}
-            gives you the
-            ultimate worry-free traveling experience, knowing all your needs
-            will have been taken care of by
-            {' '}
-            <b>CONCIERGE.</b>
-          </p>
+          <ReserveText />
           <div className="inputs">
             <input
               type="text"
@@ -68,12 +53,7 @@ const ReservePage = () => {
               onChange={(update) => { setDateRange(update); }}
               className="pill border"
             />
-            <input
-              type="submit"
-              name="submit"
-              value="Book Now"
-              className="pill white"
-            />
+            <input type="submit" name="submit" value="Book Now" className="pill white" />
           </div>
         </div>
       </section>
