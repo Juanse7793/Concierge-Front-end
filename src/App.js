@@ -6,6 +6,7 @@ import './App.css';
 import MainPage from './pages/MainPage';
 import DetailsPage from './pages/DetailsPage';
 import EventsPage from './pages/EventsPage';
+import 
 
 function App() {
   return (
