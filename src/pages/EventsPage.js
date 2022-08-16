@@ -11,12 +11,12 @@ const EventsPage = () => {
   };
 
   return (
-    <div>
+    <div className="row">
       <Sidebar />
       <section>
         {events.map((event) => (
           <ul key={event.id}>
-            <li id="event-name">
+            <li className="row event-name">
               <p>{event.name}</p>
               <button type="button" className="delete-btn" id={event.id} onClick={deleteEventHandler}>Delete</button>
             </li>

@@ -11,12 +11,12 @@ const DetailsPage = () => {
   );
 
   return (
-    <div className="main">
+    <div className="row">
       <Sidebar />
       <section className="row details">
         <div className="side left column">
           <img src={event.image} alt={event.name} />
-          <Link to="/" className="semi prev green">
+          <Link to="/" className="semi pill prev">
             ◁
           </Link>
         </div>
@@ -30,12 +30,12 @@ const DetailsPage = () => {
               <ListRow
                 caption="Duration"
                 text={`${
-                  (event.end - event.start) / (1000 * 60 * 60 * 24)
+                  (new Date(event.end) - new Date(event.start)) / (1000 * 60 * 60 * 24) || 1
                 } days`}
               />
             </ul>
           </div>
-          <Link to="./reserve" className="green">
+          <Link to="./reserve" className="pill">
             Reserve
           </Link>
         </div>

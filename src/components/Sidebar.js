@@ -6,7 +6,7 @@ import Concierge from './concierge.png';
 
 function Sidebar() {
   return (
-    <div className="side-bar-container">
+    <div className="side-bar-container column">
       <div className="side-bar-header">
         <img src={Concierge} alt="Concierge Logo" />
       </div>

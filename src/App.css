@@ -34,73 +34,17 @@ h6 {
 section {
   padding: 4rem 0;
   min-height: 100vh;
+  width: 80vw;
 }
 
-/* Main Page */
-.subtitle {
-  font-size: 0.9rem;
-  color: var(--theme-dark-grey);
+.background {
+  background: url(/public/images/florence-italy.jpg), var(--theme-lime);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
 }
 
-/* Carausel */
-.events-list {
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-/* Event */
-.event-card {
-  align-items: center;
-  justify-content: center;
-  color: black;
-  padding: 1rem;
-  margin: 1rem;
-}
-
-.circle {
-  --diameter: 200px;
-
-  position: relative;
-  height: var(--diameter);
-  width: var(--diameter);
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px groove var(--theme-lime);
-  transition: all 1s ease-in-out;
-}
-
-.event-card:hover .circle {
-  --growth: 50px;
-
-  height: calc(var(--diameter) + var(--growth));
-  width: calc(var(--diameter) + var(--growth));
-  border-radius: 1rem;
-  box-shadow: 0 0 0 8px white inset;
-}
-
-.circle > img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  object-position: center;
-  transition: all 1s ease-in-out;
-}
-
-.event-card-details {
-  margin: 0;
-  font-size: 0;
-  opacity: 0;
-  transition: all 1s ease-in-out;
-}
-
-.event-card:hover .event-card-details {
-  font-size: 1rem;
-  opacity: 0.3;
-}
-
-.green {
+.pill {
   --long-end: 3rem;
   --curve: 2rem;
 
@@ -115,13 +59,15 @@ section {
   padding: 1rem var(--long-end);
 }
 
-.green:disabled {
+.pill:disabled {
   background-color: var(--theme-grey);
 }
 
-.green:enabled:hover {
+/*
+.pill:enabled:hover {
   animation: float infinite 3s ease-in-out;
 }
+*/
 
 @keyframes float {
   0% {
@@ -152,10 +98,115 @@ section {
   padding-left: 1.5rem;
 }
 
-/* DetailsPage */
-.details {
+/* Sidebar */
+.side-bar-container {
+  align-items: center;
+  justify-content: space-between;
+  border-right: #8c8c8c 1px solid;
+  width: 20vw;
+  height: 100vh;
+}
+
+.body-titles {
+  text-decoration: none;
+  color: #2c2c2c;
+}
+
+.body-titles:not(:last-child):hover h3 {
+  color: var(--theme-grey);
+  background-color: var(--theme-lime);
+  border-radius: 10px;
+  padding: 0.25rem;
+}
+
+.sign-out {
+  background-color: #c12828;
+  color: white;
+  padding: 0.25rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: none;
+}
+
+.sign-out:hover {
+  background-color: #5b1616;
+}
+
+/* Main Page */
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--theme-dark-grey);
+}
+
+/* Carausel */
+.events-list {
+  --diameter: 200px;
+
+  /* --diameter: min(calc(calc(80vw - 26rem) / 3), 200px); */
+
+  /* 26 = 172px, 4rem padding/margin each, growth */
+  --growth: 50px;
+
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Event */
+.event-card {
   align-items: center;
   justify-content: center;
+  color: black;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.circle {
+  position: relative;
+  height: var(--diameter);
+  width: var(--diameter);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px groove var(--theme-lime);
+  transition: all 1s ease-in-out;
+}
+
+.event-card:hover .circle {
+  height: calc(var(--diameter) + var(--growth));
+  width: calc(var(--diameter) + var(--growth));
+  border-radius: 1rem;
+  box-shadow: 0 0 0 8px white inset;
+}
+
+.circle > img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  object-position: center;
+  transition: all 1s ease-in-out;
+}
+
+.event-card-details {
+  margin: 0;
+  font-size: 0;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+
+.event-card:hover .event-card-details {
+  font-size: 1rem;
+  opacity: 0.3;
+}
+
+.events-list .pill {
+  margin-top: calc(var(--diameter) / 2);
+}
+
+/* DetailsPage */
+.details {
+  align-items: flex-start;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -199,9 +250,8 @@ li.row :first-child {
   margin-right: 3rem;
 }
 
+/* Events Page */
 #event-name {
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
   margin: 15px;
   padding-left: 30px;
@@ -225,7 +275,6 @@ li.row :first-child {
 }
 
 .delete-btn:hover {
-  cursor: pointer;
   background: #fff;
   color: #cc0003;
   border: 1px solid #cc0003;
@@ -234,55 +283,40 @@ li.row :first-child {
   width: 110px;
 }
 
-.side-bar-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  border-right: #8c8c8c 1px solid;
-  width: 20%;
-  height: 100vh;
-}
-
-.main {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.main-section {
-  display: flex;
-  flex-direction: column;
+/* Reserve Page */
+.reserve {
   align-items: center;
   justify-content: center;
-  width: 80%;
-  height: 100vh;
-}
-
-.body-titles {
-  text-decoration: none;
-  color: #2c2c2c;
-}
-
-.body-titles:not(:last-child):hover h3 {
-  color: var(--theme-grey);
-  background-color: var(--theme-lime);
-  border-radius: 10px;
-  padding: 0.25rem;
-}
-
-.sign-out {
-  background-color: #c12828;
   color: white;
-  padding: 0.25rem 2rem;
-  border-radius: 0.5rem;
-  border: none;
-  box-shadow: none;
+  min-height: 500px;
 }
 
-.sign-out:hover {
-  background-color: #5b1616;
+.center {
+  max-width: 477px;
+}
+
+hr {
+  width: 80%;
+}
+
+.border {
+  border: 2px solid white;
+  margin: 1rem;
+  margin-top: 0;
+  width: 315px;
+}
+
+.white {
+  background-color: white;
+  color: var(--theme-lime);
+}
+
+.react-datepicker__day--in-range {
+  background-color: var(--theme-lime) !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #b6e222 !important;
 }
 
 /* Add event page */
