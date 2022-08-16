@@ -20,58 +20,55 @@ export default function SignUp() {
   };
 
   return (
-    <div className="log-contain">
       <div className="log">
-
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <img src="concierge.png" />
-          <Typography component="h1" variant="h5">
-            Sign Up
-          </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="username"
-              label="Username"
-              name="username"
-              autoComplete="username"
-              autoFocus
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Create an Account
-            </Button>
-            <Grid container>
-              <Grid item>
-                <NavLink activeClassName="is-active" to="/log-in">
-                Already have an account? Sign In
-                </NavLink>
+        <Container component="main" maxWidth="xs" maxHeight="xs" className="comp">
+          <CssBaseline />
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <img src="concierge.png" />
+            <Typography component="h1" variant="h5">
+              Sign Up
+            </Typography>
+            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="username"
+                label="Username"
+                name="username"
+                autoComplete="username"
+                autoFocus
+              />
+              <FormControlLabel
+                control={<Checkbox value="remember" color="primary" />}
+                label="Remember me"
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                id="sign-btn"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Create an Account
+              </Button>
+              <Grid container>
+                <Grid item>
+                  <NavLink activeClassName="is-active" to="/log-in">
+                  Already have an account? Sign In
+                  </NavLink>
+                </Grid>
               </Grid>
-            </Grid>
+            </Box>
           </Box>
-        </Box>
-      </Container>
-      </div>
-    </div>
-    
+        </Container>
+      </div>    
   );
 }
