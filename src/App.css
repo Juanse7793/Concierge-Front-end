@@ -365,3 +365,12 @@ input::file-selector-button {
   font-size: 0.85rem;
   font-weight: bold;
 }
+
+
+/* About page */
+
+.authors-div-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
