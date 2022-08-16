@@ -138,18 +138,51 @@ section {
   color: var(--theme-dark-grey);
 }
 
-/* Carausel */
+/* Carausel / Transitions */
 .events-list {
   --diameter: 200px;
-
-  /* --diameter: min(calc(calc(80vw - 26rem) / 3), 200px); */
-
-  /* 26 = 172px, 4rem padding/margin each, growth */
   --growth: 50px;
 
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
+}
+
+.card-enter {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.card-enter-active {
+  opacity: 1;
+  width: 232px;
+  height: 292px;
+  margin: 1rem;
+  padding: 1rem;
+  transition: height 2s ease-in-out, width 5s ease-in-out, opacity 3s ease-in-out;
+}
+
+.card-exit {
+  opacity: 1;
+  width: 232px;
+  height: 292px;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.card-exit-active {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: -2rem !important;
+  padding: 0 !important;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: height 5s ease-in-out, width 1s ease-in-out, opacity 5s ease-in-out;
+  animation: 1s disappear once;
 }
 
 /* Event */
