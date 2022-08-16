@@ -1,23 +1,29 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import Sidebar from '../components/Sidebar';
 
 const ReservePage = () => {
   const { id } = useParams();
-  // TODO: Have selector do this
   const event = useSelector((state) => state.events).find(
     (event) => event.id.toString() === id,
   );
 
-  const { start } = event;
-  const { end } = event;
+  const start = new Date(event.start);
+  const end = new Date(event.end);
   const [input, setInput] = useState({
     city: '',
     start,
     end,
   });
-  const setInputData = (e) => { setInput({ ...input, [e.target.name]: e.target.value }); };
+  const setInputData = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
+
+  const [dateRange, setDateRange] = useState([start, end]);
+  const [startDate, endDate] = dateRange;
 
   return (
     <div className="row">
@@ -29,25 +35,45 @@ const ReservePage = () => {
           <p>
             Hello and welcome to the
             {' '}
-            <span>CONCIERGE EVENT RESERVATION.</span>
+            <b>CONCIERGE EVENT RESERVATION.</b>
             {' '}
             Please enter the date you would like to attend and the city you will
             be traveling from in the form below to book an exclusive, all
             inclusive trip to the event.
             {' '}
-            <span>CONCIERGE</span>
+            <b>CONCIERGE</b>
             {' '}
             gives you the
             ultimate worry-free traveling experience, knowing all your needs
             will have been taken care of by
             {' '}
-            <span>CONCIERGE.</span>
+            <b>CONCIERGE.</b>
           </p>
           <div className="inputs">
-            <input type="text" name="city" placeholder="City" onChange={(e) => setInputData(e)} className="pill border" />
-            <input type="date" name="start" min={start} max={end} value={input.start} onChange={(e) => setInputData(e)} className="pill border" />
-            <input type="date" name="end" min={end} max={end} value={input.end} onChange={(e) => setInputData(e)} className="pill border" />
-            <input type="submit" name="submit" value="Book Now" className="pill white" />
+            <input
+              type="text"
+              name="city"
+              placeholder="City"
+              onChange={(e) => setInputData(e)}
+              required
+              autoComplete="off"
+              className="pill border"
+            />
+            <DatePicker
+              selectsRange
+              minDate={start}
+              maxDate={end}
+              startDate={startDate}
+              endDate={endDate}
+              onChange={(update) => { setDateRange(update); }}
+              className="pill border"
+            />
+            <input
+              type="submit"
+              name="submit"
+              value="Book Now"
+              className="pill white"
+            />
           </div>
         </div>
       </section>

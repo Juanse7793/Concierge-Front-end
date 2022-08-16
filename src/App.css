@@ -285,27 +285,31 @@ li.row :first-child {
 
 /* Reserve Page */
 .reserve {
-  position: relative;
   align-items: center;
   justify-content: center;
   color: white;
+  min-height: 500px;
 }
 
 .center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   max-width: 550px;
 }
 
 .border {
   border: 2px solid white;
   margin: 1rem;
-  margin-bottom: 0;
+  margin-top: 0;
+  width: 315px;
 }
 
 .white {
   background-color: white;
   color: var(--theme-lime);
+}
+.react-datepicker__day--in-range {
+  background-color: var(--theme-lime) !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #b6e222 !important;
 }
