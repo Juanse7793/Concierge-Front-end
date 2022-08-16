@@ -9,10 +9,7 @@ const EventCard = ({ event }) => (
     </div>
     <h3 className="event-card-title">{event.name}</h3>
     <p className="event-card-details">{event.location}</p>
-    <p className="event-card-details">
-      $
-      {event.price}
-    </p>
+    <p className="event-card-details">{`$${event.price}`}</p>
   </Link>
 );
 

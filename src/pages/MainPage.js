@@ -9,9 +9,7 @@ const MainPage = () => {
   const [slice, setSlice] = useState(0);
   const step = 3; // Math.floor((window.innerWidth - (86 * 2)) / 282);
   // console.log(step);
-  // const sliceEventsPrev = events.slice(slice - step, slice);
   const sliceEvents = events.slice(slice, slice + step);
-  // const sliceEventsNext = events.slice(slice + step, slice + (2 * step));
 
   const prevSlice = () => {
     if (slice <= step) setSlice(0);
@@ -23,7 +21,7 @@ const MainPage = () => {
   };
 
   return (
-    <div className="main">
+    <div className="row">
       <Sidebar />
       <section className="column">
         <div className="title-box">
