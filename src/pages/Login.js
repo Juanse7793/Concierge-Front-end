@@ -8,11 +8,10 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 export default function Login() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
@@ -23,53 +22,53 @@ export default function Login() {
   return (
     <div className="log">
       <Container component="main" maxWidth="xs" className="comp">
-          <CssBaseline />
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <img src="concierge.png" />
-            <Typography component="h1" variant="h5">
+        <CssBaseline />
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <img src="concierge.png" alt="logo" />
+          <Typography component="h1" variant="h5">
+            Sign In
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="username"
+              label="Username"
+              name="username"
+              autoComplete="username"
+              autoFocus
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              id="sign-btn"
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
               Sign In
-            </Typography>
-            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="username"
-                label="Username"
-                name="username"
-                autoComplete="username"
-                autoFocus
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
-              <Button
-                type="submit"
-                fullWidth
-                id="sign-btn"
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Sign In
-              </Button>
-              <Grid container>
-                <Grid item>
-                  <NavLink activeClassName="is-active" to="/sign-up">
-                  Don't have an account? Sign Up
-                  </NavLink>
-                </Grid>
+            </Button>
+            <Grid container>
+              <Grid item>
+                <NavLink activeClassName="is-active" to="/sign-up">
+                  Dont have an account? Sign Up
+                </NavLink>
               </Grid>
-            </Box>
+            </Grid>
           </Box>
-        </Container>
+        </Box>
+      </Container>
     </div>
-      
+
   );
 }
