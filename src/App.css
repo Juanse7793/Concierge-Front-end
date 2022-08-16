@@ -141,7 +141,10 @@ section {
 /* Carausel */
 .events-list {
   --diameter: 200px;
-  /* --diameter: min(calc(calc(80vw - 26rem) / 3), 200px); */ /* 26 = 172px, 4rem padding/margin each, growth */
+
+  /* --diameter: min(calc(calc(80vw - 26rem) / 3), 200px); */
+
+  /* 26 = 172px, 4rem padding/margin each, growth */
   --growth: 50px;
 
   align-items: flex-start;
