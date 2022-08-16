@@ -7,6 +7,9 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 function AddEvent() {
   const [valueStart, setValue1] = React.useState(null);
   const [valueEnd, setValue2] = React.useState(null);
+  const sx = {
+    width: '500px', color: 'black',
+  };
 
   return (
     <div className="add-event-main">
@@ -14,9 +17,14 @@ function AddEvent() {
         <h1 className="add-event-title">Add Event</h1>
       </div>
       <form className="add-event-form">
-        <TextField id="event-name" label="Event Name" margin="normal" />
-        <TextField id="event-location" label="Event Location" margin="normal" />
-        <TextField id="event-price" label="Event Price" margin="normal" />
+        <TextField
+          sx={sx}
+          id="event-name"
+          label="Event Name"
+          margin="normal"
+        />
+        <TextField sx={sx} id="event-location" label="Event Location" margin="normal" />
+        <TextField sx={sx} id="event-price" label="Event Price" margin="normal" />
 
         <div className="add-event-dates">
           <h2 className="add-event-dates-title">Event dates</h2>
@@ -29,7 +37,7 @@ function AddEvent() {
               setValue1(newValue);
             }}
             // eslint-disable-next-line react/jsx-props-no-spreading
-            renderInput={(params) => <TextField {...params} />}
+            renderInput={(params) => <TextField sx={sx} {...params} />}
           />
           <br />
           <DatePicker
@@ -40,13 +48,14 @@ function AddEvent() {
               setValue2(newValue);
             }}
             // eslint-disable-next-line react/jsx-props-no-spreading
-            renderInput={(params) => <TextField {...params} />}
+            renderInput={(params) => <TextField sx={sx} {...params} />}
           />
         </LocalizationProvider>
         <div className="add-event-images">
           <h2 className="add-event-images-title">Event images</h2>
         </div>
         <input type="file" multiple id="new-event-image" />
+        <input type="submit" id="submit-event" value="Add Event" />
       </form>
     </div>
   );

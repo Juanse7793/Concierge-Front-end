@@ -274,9 +274,26 @@ li.row :first-child {
   height: 100vh;
 }
 
-input::file-selector-button {
-  border-radius: 15px;
+#submit-event {
+  margin-top: 40px;
+  border-radius: 0.5rem;
   border: none;
   background-color: var(--theme-grey);
   margin-right: 10px;
+  padding: 0.75rem 2.5rem;
+  background-color: white;
+  color: var(--theme-lime);
+  font-size: 0.85rem;
+  font-weight: bold; 
+}
+
+input::file-selector-button {
+  background-color: var(--theme-lime);
+  color: white;
+  padding: 0.75rem 2.5rem;
+  border-radius: 0.5rem;
+  border: white 0.5px solid;
+  box-shadow: none;
+  font-size: 0.85rem;
+  font-weight: bold;
 }
