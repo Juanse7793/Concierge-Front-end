@@ -7,10 +7,12 @@ import MainPage from './pages/MainPage';
 import DetailsPage from './pages/DetailsPage';
 import EventsPage from './pages/EventsPage';
 import ReservePage from './pages/ReservePage';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App row">
+      <Sidebar />
       <Router>
         <Routes>
           <Route exact path="/" element={<MainPage />} />

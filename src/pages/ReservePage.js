@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import Sidebar from '../components/Sidebar';
 import ReserveText from '../components/ReserveText';
 
 const ReservePage = () => {
@@ -27,37 +26,35 @@ const ReservePage = () => {
   const [startDate, endDate] = dateRange;
 
   return (
-    <div className="row">
-      <Sidebar />
-      <section className="column reserve background">
-        <div className="center">
-          <h1>{`BOOK A TICKET TO ${event.name.toUpperCase()}`}</h1>
-          <hr />
-          <ReserveText />
-          <div className="inputs">
-            <input
-              type="text"
-              name="city"
-              placeholder="City"
-              onChange={(e) => setInputData(e)}
-              required
-              autoComplete="off"
-              className="pill border"
-            />
-            <DatePicker
-              selectsRange
-              minDate={start}
-              maxDate={end}
-              startDate={startDate}
-              endDate={endDate}
-              onChange={(update) => { setDateRange(update); }}
-              className="pill border"
-            />
-            <input type="submit" name="submit" value="Book Now" className="pill white" />
-          </div>
+    <section className="column reserve background">
+      <div className="center">
+        <h1>{`BOOK A TICKET TO ${event.name.toUpperCase()}`}</h1>
+        <hr />
+        <ReserveText />
+        <div className="inputs">
+          <input
+            type="text"
+            name="city"
+            placeholder="City"
+            value={input.city}
+            onChange={(e) => setInputData(e)}
+            required
+            autoComplete="off"
+            className="pill border"
+          />
+          <DatePicker
+            selectsRange
+            minDate={start}
+            maxDate={end}
+            startDate={startDate}
+            endDate={endDate}
+            onChange={(update) => { setDateRange(update); }}
+            className="pill border"
+          />
+          <input type="submit" name="submit" value="Book Now" className="pill white" />
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 
