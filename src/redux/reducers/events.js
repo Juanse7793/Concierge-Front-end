@@ -7,8 +7,8 @@ const initialState = [
     location: 'loc',
     image: '/images/carrington_event.jpg',
     price: 234,
-    start: new Date(2022, 8, 1),
-    end: new Date(2022, 8, 5),
+    start: '22 September 2021',
+    end: '27 September 2021',
     reserved: false,
   },
   {
@@ -17,8 +17,8 @@ const initialState = [
     location: 'loc',
     image: '/images/musical_festival.jpg',
     price: 234,
-    start: new Date(2022, 8, 1),
-    end: new Date(2022, 8, 3),
+    start: '22 September 2021',
+    end: '27 September 2021',
     reserved: false,
   },
   {
@@ -27,8 +27,8 @@ const initialState = [
     location: 'loc',
     image: '/images/manchester-international-festival.jpg',
     price: 234,
-    start: new Date(2022, 8, 10),
-    end: Date.now(),
+    start: '22 September 2021',
+    end: '27 September 2021',
     reserved: true,
   },
   {
@@ -37,8 +37,8 @@ const initialState = [
     location: 'loc',
     image: '/images/carrington_event.jpg',
     price: 234,
-    start: new Date(2022, 8, 1),
-    end: new Date(2022, 8, 6),
+    start: '22 September 2021',
+    end: '27 September 2021',
     reserved: true,
   },
   {
@@ -47,8 +47,8 @@ const initialState = [
     location: 'loc',
     image: '/images/musical_festival.jpg',
     price: 234,
-    start: new Date(2022, 8, 1),
-    end: new Date(2022, 8, 2),
+    start: '22 September 2021',
+    end: '27 September 2021',
     reserved: true,
   },
 ];
@@ -59,13 +59,13 @@ const eventsSlice = createSlice({
   initialState,
   reducers: {
     getEvents(state, action) {
-      state = action.payload;
+      return action.payload;
     },
     addEvent(state, action) {
-      state = [...state, action.payload];
+      return [...state, action.payload];
     },
     deleteEvent(state, action) {
-      state = state.filter((event) => event.id !== action.payload);
+      return state.filter((event) => event.id !== action.payload);
     },
   },
 });
