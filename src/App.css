@@ -366,7 +366,6 @@ input::file-selector-button {
   font-weight: bold;
 }
 
-
 /* About page */
 
 .authors-div-body {
@@ -390,6 +389,7 @@ input::file-selector-button {
   text-align: center;
   margin: 1rem 3rem;
 }
+
 .about-icons {
   text-decoration: none;
   color: black;
