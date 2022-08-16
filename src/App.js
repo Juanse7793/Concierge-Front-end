@@ -7,6 +7,7 @@ import MainPage from './pages/MainPage';
 import DetailsPage from './pages/DetailsPage';
 import EventsPage from './pages/EventsPage';
 import ReservePage from './pages/ReservePage';
+import AddEvent from './components/AddEvent';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/events/:id" element={<DetailsPage />} />
           <Route path="/events/:id/reserve" element={<ReservePage />} />
           <Route exact path="/all-events" element={<EventsPage />} />
+          <Route path="/new-event" element={<AddEvent />} />
         </Routes>
       </Router>
     </div>
