@@ -6,7 +6,7 @@ const Button = ({
 }) => (
   <button
     type="button"
-    className={`green ${className}`}
+    className={`pill ${className}`}
     disabled={disabled}
     onClick={() => func()}
   >
