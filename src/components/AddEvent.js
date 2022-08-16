@@ -31,9 +31,11 @@ function AddEvent() {
             // eslint-disable-next-line react/jsx-props-no-spreading
             renderInput={(params) => <TextField {...params} />}
           />
+          <br />
           <DatePicker
             label="End Date"
             value={valueEnd}
+            className="DatePicker"
             onChange={(newValue) => {
               setValue2(newValue);
             }}
@@ -41,6 +43,10 @@ function AddEvent() {
             renderInput={(params) => <TextField {...params} />}
           />
         </LocalizationProvider>
+        <div className="add-event-images">
+          <h2 className="add-event-images-title">Event images</h2>
+        </div>
+        <input type="file" multiple id="new-event-image" />
       </form>
     </div>
   );

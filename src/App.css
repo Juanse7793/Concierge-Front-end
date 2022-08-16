@@ -274,3 +274,9 @@ li.row :first-child {
   height: 100vh;
 }
 
+input::file-selector-button {
+  border-radius: 15px;
+  border: none;
+  background-color: var(--theme-grey);
+  margin-right: 10px;
+}
