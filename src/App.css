@@ -262,7 +262,7 @@ li.row :first-child {
   background: url(/public/images/musical_festival.jpg), var(--theme-lime);
   background-repeat: no-repeat;
   background-size: cover;
-  background-blend-mode: soft-light; 
+  background-blend-mode: soft-light;
 }
 
 .add-event-form {
@@ -278,13 +278,12 @@ li.row :first-child {
   margin-top: 40px;
   border-radius: 0.5rem;
   border: none;
-  background-color: var(--theme-grey);
   margin-right: 10px;
   padding: 0.75rem 2.5rem;
   background-color: white;
   color: var(--theme-lime);
   font-size: 0.85rem;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 input::file-selector-button {
