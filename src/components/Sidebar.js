@@ -1,30 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Concierge from './concierge.png';
+import '../css/Sidebar.css';
 
 function Sidebar() {
+  const linkClass = 'pill semi prev link';
+  const [hidden, setHidden] = useState(true);
+  const toggle = () => setHidden(!hidden);
+  const toggleClass = (hidden) => (hidden ? 'hidden' : '');
+
   return (
-    <div className="side-bar-container column">
-      <img src={Concierge} alt="Concierge Logo" />
-      <div className="side-bar-body">
-        <a href="/" className="body-titles"><h3>Home</h3></a>
-        <a href="/my-reservations" className="body-titles"><h3>My Reservations</h3></a>
-        <a href="/new-event" className="body-titles"><h3>New Event</h3></a>
-        <a href="/all-events" className="body-titles"><h3>Remove Event</h3></a>
-        <a href="/about" className="body-titles"><h3>About</h3></a>
-        <button type="submit" className="sign-out"><h3>Sign Out</h3></button>
-      </div>
-      <div className="side-bar-footer">
-        <div className="social-media">
-          <GitHubIcon />
-          <LinkedInIcon />
-          <TwitterIcon />
+    <>
+      <button className={`burger ${toggleClass(!hidden)}`} type="button" onClick={toggle}>-</button>
+      <nav className={`side-bar-container column ${toggleClass(hidden)}`}>
+        <img src={Concierge} alt="Concierge Logo" />
+        <div className="side-bar-body column">
+          <NavLink to="/" className={linkClass} onClick={toggle}>Home</NavLink>
+          <NavLink to="/my-reservations" className={linkClass} onClick={toggle}>My Reservations</NavLink>
+          <NavLink to="/new-event" className={linkClass} onClick={toggle}>New Event</NavLink>
+          <NavLink to="/all-events" className={linkClass} onClick={toggle}>Remove Event</NavLink>
+          <NavLink to="/about" className={linkClass} onClick={toggle}>About</NavLink>
+          <button type="submit" className={`${linkClass} red`} onClick={toggle}>Sign Out</button>
         </div>
-        <small>&copy; Concierge 2022</small>
-      </div>
-    </div>
+        <footer>
+          <div className="social-media">
+            <GitHubIcon />
+            <LinkedInIcon />
+            <TwitterIcon />
+          </div>
+          <small>&copy; Concierge 2022</small>
+        </footer>
+      </nav>
+    </>
   );
 }
 

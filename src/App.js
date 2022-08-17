@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  BrowserRouter as Router, Routes, Route,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import MainPage from './pages/MainPage';
 import DetailsPage from './pages/DetailsPage';
@@ -15,9 +13,8 @@ import Sidebar from './components/Sidebar';
 function App() {
   return (
     <div className="App row">
-      <div className="burger" />
-      <Sidebar />
       <Router>
+        <Sidebar />
         <Routes>
           <Route exact path="/" element={<MainPage />} />
           <Route exact path="/events/:id" element={<DetailsPage />} />

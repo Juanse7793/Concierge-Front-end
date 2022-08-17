@@ -35,6 +35,8 @@ section {
   padding: 4rem 0;
   min-height: 100vh;
   width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .background {
@@ -48,13 +50,16 @@ section {
   background-blend-mode: soft-light;
 }
 
+.link {
+  text-decoration: none;
+  color: #2c2c2c;
+}
+
 .pill {
   --long-end: 3rem;
   --curve: 2rem;
 
   cursor: pointer;
-  background-color: var(--theme-lime);
-  color: white;
   font-weight: bold;
   font-size: 1rem;
   border: none;
@@ -65,6 +70,22 @@ section {
 
 .pill:disabled {
   background-color: var(--theme-grey);
+}
+
+.active,
+.green {
+  background-color: var(--theme-lime);
+  color: white;
+}
+
+.white {
+  background-color: white;
+  color: var(--theme-lime);
+}
+
+.red {
+  background-color: #c12828;
+  color: white;
 }
 
 /*
@@ -100,55 +121,6 @@ section {
   border-radius: var(--curve) 0 0 var(--curve);
   padding-right: var(--long-end);
   padding-left: 1.5rem;
-}
-
-/* Sidebar */
-.side-bar-container {
-  justify-content: space-between;
-  border-right: #8c8c8c 1px solid;
-  width: 20vw;
-  min-width: 150px;
-  height: 100vh;
-}
-
-.side-bar-container img {
-  width: 100%;
-}
-
-.side-bar-body {
-  padding: 0.5rem;
-  /* text-align: left; */
-}
-
-.side-bar-footer small {
-  font-size: small;
-  color: var(--theme-dark-grey);
-  margin: 4px;
-}
-
-.body-titles {
-  text-decoration: none;
-  color: #2c2c2c;
-}
-
-.body-titles:not(:last-child):hover h3 {
-  color: var(--theme-grey);
-  background-color: var(--theme-lime);
-  border-radius: 10px;
-  padding: 0.25rem;
-}
-
-.sign-out {
-  background-color: #c12828;
-  color: white;
-  padding: 0.25rem 2rem;
-  border-radius: 0.5rem;
-  border: none;
-  box-shadow: none;
-}
-
-.sign-out:hover {
-  background-color: #5b1616;
 }
 
 /* Main Page */
@@ -422,11 +394,6 @@ hr {
   width: 315px;
 }
 
-.white {
-  background-color: white;
-  color: var(--theme-lime);
-}
-
 .react-datepicker__day--in-range,
 .react-datepicker__day--in-selecting-range {
   background-color: var(--theme-lime) !important;
@@ -512,48 +479,4 @@ input::file-selector-button {
 
 .burger {
   display: none;
-}
-
-@media (max-width: 768px) {
-  .burger {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    margin: 2rem 1.5rem;
-    width: 1.5rem;
-    height: 4px;
-    border-radius: 1rem;
-    background-color: black;
-  }
-
-  .burger::before,
-  .burger::after {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    width: 1.5rem;
-    height: 4px;
-    border-radius: 1rem;
-    background-color: black;
-  }
-
-  .burger::before {
-    margin-top: -0.25rem;
-    transform: translateY(-100%);
-  }
-
-  .burger::after {
-    margin-top: 0.25rem;
-    transform: translateY(100%);
-  }
-
-  .hidden {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    overflow: hidden;
-  }
 }

@@ -40,7 +40,7 @@ const ReservePage = () => {
             onChange={(e) => setInputData(e)}
             required
             autoComplete="off"
-            className="pill border"
+            className="pill green border"
           />
           <DatePicker
             selectsRange
@@ -49,7 +49,7 @@ const ReservePage = () => {
             startDate={startDate}
             endDate={endDate}
             onChange={(update) => { setDateRange(update); }}
-            className="pill border"
+            className="pill green border"
           />
           <input type="submit" name="submit" value="Book Now" className="pill white" />
         </div>

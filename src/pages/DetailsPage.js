@@ -13,7 +13,7 @@ const DetailsPage = () => {
     <section className="row details">
       <div className="side left column">
         <img src={event.image} alt={event.name} />
-        <Link to="/" className="semi pill prev">
+        <Link to="/" className="semi green pill prev">
           ◁
         </Link>
       </div>
@@ -32,7 +32,7 @@ const DetailsPage = () => {
             />
           </ul>
         </div>
-        <Link to="./reserve" className="pill">
+        <Link to="./reserve" className="pill green">
           Reserve
         </Link>
       </div>
