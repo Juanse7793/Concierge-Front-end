@@ -29,11 +29,11 @@ function AddEvent() {
   };
 
   return (
-    <div className="add-event-main">
+    <section className="add-event-main background column">
       <div className="add-event-header">
         <h1 className="add-event-title">Add Event</h1>
       </div>
-      <form className="add-event-form">
+      <form className="add-event-form column">
         <TextField
           value={valueName}
           onChange={(e) => handleChangeName(e.target.value)}
@@ -90,7 +90,7 @@ function AddEvent() {
         <input type="file" multiple id="new-event-image" />
         <input type="submit" id="submit-event" value="Add Event" />
       </form>
-    </div>
+    </section>
   );
 }
 

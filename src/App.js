@@ -7,8 +7,8 @@ import MainPage from './pages/MainPage';
 import DetailsPage from './pages/DetailsPage';
 import EventsPage from './pages/EventsPage';
 import ReservePage from './pages/ReservePage';
-import AddEvent from './components/AddEvent';
-import ReservationsPage from './components/ReservationsPage';
+import AddEvent from './pages/AddEvent';
+import ReservationsPage from './pages/ReservationsPage';
 import AboutPage from './pages/AboutPage';
 import Sidebar from './components/Sidebar';
 
