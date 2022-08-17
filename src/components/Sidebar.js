@@ -7,9 +7,7 @@ import Concierge from './concierge.png';
 function Sidebar() {
   return (
     <div className="side-bar-container column">
-      <div className="side-bar-header">
-        <img src={Concierge} alt="Concierge Logo" />
-      </div>
+      <img src={Concierge} alt="Concierge Logo" />
       <div className="side-bar-body">
         <a href="/" className="body-titles"><h3>Home</h3></a>
         <a href="/" className="body-titles"><h3>My Reservations</h3></a>

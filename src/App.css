@@ -107,6 +107,10 @@ section {
   height: 100vh;
 }
 
+.side-bar-container img {
+  width: 100%;
+}
+
 .body-titles {
   text-decoration: none;
   color: #2c2c2c;
