@@ -1,16 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { logger } from 'redux-logger';
-import eventsReducer from './reducers/events';
-import reservationsReducer from './reducers/reservations';
-// import userReducer from './reducers/user';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import eventReducer, { fetchEvent } from './reducers/events';
 
-const store = configureStore({
-  reducer: {
-    events: eventsReducer,
-    reservations: reservationsReducer,
-    // user: userReducer,
-  },
-  middleware: [logger],
+const reducer = combineReducers({
+  eventReducer,
 });
+const store = createStore(
+  reducer,
+  applyMiddleware(thunk, logger),
+);
 
+store.dispatch(fetchEvent());
 export default store;
