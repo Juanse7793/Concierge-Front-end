@@ -1,15 +1,15 @@
 * {
-  box-sizing: border-box;
-
   --theme-lime: #97bf0f;
   --theme-grey: #efefef;
   --theme-dark-grey: #8c8c8c;
   --heading-font: 'Roboto Condensed', sans-serif;
 
+  box-sizing: border-box;
   text-decoration: none;
 }
 
 .App {
+  position: relative;
   text-align: center;
 }
 
@@ -44,9 +44,8 @@ section {
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: luminosity;
-  background-blend-mode: soft-light;
-  background-blend-mode: soft-light;
   background-blend-mode: multiply;
+  background-blend-mode: soft-light;
 }
 
 .pill {
@@ -105,15 +104,26 @@ section {
 
 /* Sidebar */
 .side-bar-container {
-  /* align-items: center; */
   justify-content: space-between;
   border-right: #8c8c8c 1px solid;
   width: 20vw;
+  min-width: 150px;
   height: 100vh;
 }
 
 .side-bar-container img {
   width: 100%;
+}
+
+.side-bar-body {
+  padding: 0.5rem;
+  /* text-align: left; */
+}
+
+.side-bar-footer small {
+  font-size: small;
+  color: var(--theme-dark-grey);
+  margin: 4px;
 }
 
 .body-titles {
@@ -149,13 +159,18 @@ section {
 
 /* Carausel / Transitions */
 .events-list {
-  --diameter: calc(calc(calc(80vw - 172px) / 3) - 4rem);
+  --diameter: min(calc(calc(calc(80vw - 172px) / 3) - 4rem), 200px);
   --growth: 4rem;
 
   position: relative;
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
+}
+
+.transit {
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .card-enter {
@@ -171,15 +186,11 @@ section {
 }
 
 .card-enter-active {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(50%, 0%);
   opacity: 1;
   height: calc(var(--diameter) + 2rem + 60px);
   margin: 1rem;
   padding: 1rem;
-  transition: height 2s ease-in-out, opacity 4s ease-in-out;
+  transition: height 2s ease-in-out, opacity 3s ease-in-out;
 }
 
 .card-enter-active .circle {
@@ -195,13 +206,16 @@ section {
 .card-exit {
   opacity: 1;
   height: calc(var(--diameter) + 1rem + 60px);
-  margin: 1rem;
-  padding: 1rem;
 }
 
 .card-exit .circle {
   width: var(--diameter);
   border-width: 4px;
+}
+
+.card-exit * {
+  margin: 0;
+  padding: 0;
 }
 
 .card-exit-active {
@@ -218,6 +232,30 @@ section {
   width: 0;
   border-width: 1px;
   transition: all 2s ease-in-out;
+}
+
+.card-exit-active * {
+  margin: 0;
+  padding: 0;
+  transition: all 2s ease-in-out;
+}
+
+.page-enter {
+  opacity: 0;
+}
+
+.page-enter-active {
+  opacity: 1;
+  transition: height 2s ease-in-out, opacity 3s ease-in-out;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: all 2s ease-in-out, opacity 1s ease-in-out;
 }
 
 /* Event */
@@ -292,13 +330,21 @@ section {
   max-width: 60vw;
   max-height: calc(100vh - 13rem);
   border: 4px groove var(--theme-lime);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.left .pill {
+  margin-left: -2rem
 }
 
 .right {
   align-items: center;
   justify-content: space-between;
   text-align: right;
+}
+
+.right h1 {
+  margin-top: 0
 }
 
 ul {
@@ -365,6 +411,7 @@ li.row :first-child {
 }
 
 hr {
+  color: white;
   width: 80%;
 }
 
@@ -380,7 +427,8 @@ hr {
   color: var(--theme-lime);
 }
 
-.react-datepicker__day--in-range {
+.react-datepicker__day--in-range,
+.react-datepicker__day--in-selecting-range {
   background-color: var(--theme-lime) !important;
 }
 
@@ -392,17 +440,11 @@ hr {
 
 .add-event-main {
   align-items: center;
-
   /* justify-content: flex-start; */
-
   /* width: 100%; */
-
   /* height: 100%; */
-
   /* background: url(/public/images/musical_festival.jpg), var(--theme-lime); */
-
   /* background-repeat: no-repeat; */
-
   /* background-size: cover; */
   background-blend-mode: soft-light;
 }
@@ -466,4 +508,52 @@ input::file-selector-button {
 .about-icons {
   text-decoration: none;
   color: black;
+}
+
+.burger {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .burger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    margin: 2rem 1.5rem;
+    width: 1.5rem;
+    height: 4px;
+    border-radius: 1rem;
+    background-color: black;
+  }
+
+  .burger::before,
+  .burger::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 1.5rem;
+    height: 4px;
+    border-radius: 1rem;
+    background-color: black;
+  }
+
+  .burger::before {
+    margin-top: -0.25rem;
+    transform: translateY(-100%);
+  }
+
+  .burger::after {
+    margin-top: 0.25rem;
+    transform: translateY(100%);
+  }
+
+  .hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    overflow: hidden;
+  }
 }

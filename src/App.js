@@ -15,6 +15,7 @@ import Sidebar from './components/Sidebar';
 function App() {
   return (
     <div className="App row">
+      <div className="burger" />
       <Sidebar />
       <Router>
         <Routes>

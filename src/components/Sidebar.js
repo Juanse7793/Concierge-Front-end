@@ -22,7 +22,7 @@ function Sidebar() {
           <LinkedInIcon />
           <TwitterIcon />
         </div>
-        <p>&copy; Concierge 2022</p>
+        <small>&copy; Concierge 2022</small>
       </div>
     </div>
   );

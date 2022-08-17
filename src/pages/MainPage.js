@@ -27,13 +27,15 @@ const MainPage = () => {
       </div>
       <div className="events-list row">
         <Button text="◁" disabled={slice < step} func={prevSlice} className="semi prev" />
-        <TransitionGroup component={null}>
-          {sliceEvents.map((event) => (
-            <CSSTransition key={event.id} timeout={5000} classNames="card">
-              <EventCard event={event} />
-            </CSSTransition>
-          ))}
-        </TransitionGroup>
+        <div className="events-list row transit">
+          <TransitionGroup component={null}>
+            {sliceEvents.map((event) => (
+              <CSSTransition key={event.id} timeout={5000} classNames="card">
+                <EventCard event={event} />
+              </CSSTransition>
+            ))}
+          </TransitionGroup>
+        </div>
         <Button text="▷" disabled={slice > events.length - step} func={nextSlice} className="semi next" />
       </div>
     </section>

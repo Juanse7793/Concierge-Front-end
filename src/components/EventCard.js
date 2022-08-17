@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const EventCard = ({ event }) => (
-
   <Link to={`/events/${event.id}`} className="event-card column">
     <div className="circle">
       <img src={event.image} className="eventImage" alt="" />
