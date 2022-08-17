@@ -1,4 +1,4 @@
-// import { createSlice } from '@reduxjs/toolkit';
+import api from './api';
 
 const initState = {
   events: [],
@@ -15,9 +15,30 @@ const eventReducer = (state = initState, action) => {
       return { events: action.payload };
     default:
       return state;
+    case 'DELETE_EVENT':
+      return {
+        ...state,
+        events: state.events.filter((event) => event.id !== Number(action.payload)),
+      };
   }
 };
 
+// export const deleteEvent = (id) => async (dispatch) => {
+//   dispatch({ type: 'DELETE_EVENT', payload: id });
+// };
+
+export const deleteEvent = (id) => async (dispatch) => {
+  try {
+    await api(`events/${id}`, 'DELETE', '');
+    dispatch({
+      type: 'DELETE_EVENT',
+      payload: id,
+    });
+    return true;
+  } catch (err) {
+    return err;
+  }
+};
 // const eventsSlice = createSlice({
 //   /* eslint no-param-reassign: 0 */
 //   name: 'events',
