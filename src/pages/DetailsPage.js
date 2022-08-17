@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ListRow from '../components/ListRow';
@@ -8,12 +8,19 @@ const DetailsPage = () => {
   const event = useSelector((state) => state.events).find(
     (event) => event.id.toString() === id,
   );
+  const [width, setWidth] = useState(window.innerWidth);
+  window.addEventListener('resize', () => { setWidth(window.innerWidth); });
+
+  const wide = width > 768;
+  const style = {
+    background: `url(${event.image}) no-repeat center / cover`,
+  };
 
   return (
-    <section className="row details">
+    <section className="row details" style={wide ? {} : style}>
       <div className="side left column">
-        <img src={event.image} alt={event.name} />
-        <Link to="/" className="semi green pill prev">
+        {wide ? <img src={event.image} alt={event.name} /> : null}
+        <Link to="/" className={`semi ${wide ? 'green' : 'white'} pill prev`}>
           ◁
         </Link>
       </div>
@@ -32,7 +39,7 @@ const DetailsPage = () => {
             />
           </ul>
         </div>
-        <Link to="./reserve" className="pill green">
+        <Link to="./reserve" className={`pill ${wide ? 'green' : 'white'}`}>
           Reserve
         </Link>
       </div>
