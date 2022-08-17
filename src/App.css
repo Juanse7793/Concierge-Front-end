@@ -186,7 +186,6 @@ section {
   border-radius: 50%;
   overflow: hidden;
   transition: height 5s ease-in-out, width 1s ease-in-out, opacity 5s ease-in-out;
-  animation: 1s disappear once;
 }
 
 /* Event */
