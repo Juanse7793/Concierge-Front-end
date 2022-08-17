@@ -355,3 +355,79 @@ hr {
 .react-datepicker__day--keyboard-selected {
   background-color: #b6e222 !important;
 }
+
+/* Add event page */
+
+.add-event-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100vh;
+  background: url(/public/images/musical_festival.jpg), var(--theme-lime);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: soft-light;
+}
+
+.add-event-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100vh;
+}
+
+#submit-event {
+  margin-top: 40px;
+  border-radius: 0.5rem;
+  border: none;
+  margin-right: 10px;
+  padding: 0.75rem 2.5rem;
+  background-color: white;
+  color: var(--theme-lime);
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+input::file-selector-button {
+  background-color: var(--theme-lime);
+  color: white;
+  padding: 0.75rem 2.5rem;
+  border-radius: 0.5rem;
+  border: white 0.5px solid;
+  box-shadow: none;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+/* About page */
+
+.authors-div-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.about-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 100vh;
+}
+
+.about-text {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 1rem 3rem;
+}
+
+.about-icons {
+  text-decoration: none;
+  color: black;
+}
