@@ -21,7 +21,7 @@ const DetailsPage = () => {
     <section className="row details" style={wide ? {} : style}>
       <div className="side left column">
         {wide ? <img src={event.image} alt={event.name} /> : null}
-        <Link to="/" className={`semi ${wide ? 'green' : 'white'} pill prev`}>
+        <Link to="/" className={`semi ${wide ? 'green' : 'white'} moving pill prev`}>
           ◁
         </Link>
       </div>

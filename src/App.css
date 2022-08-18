@@ -317,46 +317,6 @@ li.row {
   width: 110px;
 }
 
-/* Reserve Page */
-.reserve {
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  min-height: 500px;
-}
-
-.center {
-  max-width: 477px;
-}
-
-hr {
-  color: white;
-  width: 80%;
-}
-
-.border {
-  border: 2px solid white;
-  margin: 1rem;
-  margin-top: 0;
-  width: 315px;
-}
-
-.react-datepicker__day--in-range,
-.react-datepicker__day--in-selecting-range {
-  background-color: var(--theme-lime) !important;
-}
-
-.react-datepicker__day--keyboard-selected {
-  background-color: #b6e222 !important;
-}
-
-.reserve .prev {
-  position: absolute;
-  top: 75%;
-  left: 0;
-}
-
 /* Add event page */
 
 .add-event-main {
@@ -425,10 +385,11 @@ input::file-selector-button {
 }
 
 @media (max-width: 768px) {
-  .left .pill {
+  .pill.prev.moving {
     position: absolute;
     top: 1rem;
     right: 1rem;
+    left: auto;
     border-radius: 50%;
     padding: 0.5rem 0.75rem;
   }

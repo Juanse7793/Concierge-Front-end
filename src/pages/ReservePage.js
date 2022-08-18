@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import ReserveText from '../components/ReserveText';
+import '../css/ReservePage.css';
 
 const ReservePage = () => {
   const { id } = useParams();
@@ -48,11 +49,13 @@ const ReservePage = () => {
             maxDate={end}
             startDate={startDate}
             endDate={endDate}
-            onChange={(update) => { setDateRange(update); }}
+            popperPlacement="top-end"
+            onChange={(e) => setDateRange(e)}
             className="pill green border"
           />
           <input type="submit" name="submit" value="Book Now" className="pill white" />
         </div>
+        <Link to={`/events/${id}`} className="pill semi prev white moving">◁</Link>
       </div>
     </section>
   );
