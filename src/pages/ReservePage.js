@@ -8,7 +8,7 @@ import '../css/ReservePage.css';
 
 const ReservePage = () => {
   const { id } = useParams();
-  const event = useSelector((state) => state.events).find(
+  const event = useSelector((state) => state.events.events).find(
     (event) => event.id.toString() === id,
   );
 

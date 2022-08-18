@@ -2,11 +2,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteEvent } from '../redux/reducers/events';
 
 const EventsPage = () => {
-  const events = useSelector((state) => state.events);
+  const events = useSelector((state) => state.events.events);
   const dispatch = useDispatch();
 
   const deleteEventHandler = (e) => {
     dispatch(deleteEvent(Number(e.target.id)));
+    // deleteEvent(Number(e.target.id));
   };
 
   return (

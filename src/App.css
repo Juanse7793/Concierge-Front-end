@@ -351,6 +351,42 @@ input::file-selector-button {
   font-weight: bold;
 }
 
+.log-contain {
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  align-content: center;
+}
+
+.log {
+  background: url('../public/images/musical_festival.jpg');
+  background-color: #97bf0f;
+  background-blend-mode: soft-light;
+  height: 625px;
+  display: flex;
+  align-items: center;
+}
+
+.comp {
+  background: #fff;
+  /* stylelint-disable-next-line csstree/validator */
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  border: 4px solid #fff;
+  border-radius: 20px;
+  padding-bottom: 10px;
+}
+
+#sign-btn {
+  background: #97bf0f;
+}
+
+#sign-btn:hover {
+  background: #fff;
+  color: #97bf0f;
+}
+
 /* About page */
 
 .authors-div-body {

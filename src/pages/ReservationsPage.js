@@ -3,7 +3,7 @@ import { deleteReservation } from '../redux/reducers/reservations';
 
 const ReservationsPage = () => {
   const reservations = useSelector((state) => state.reservations);
-  const events = useSelector((state) => state.events);
+  const events = useSelector((state) => state.events.events);
   const dispatch = useDispatch();
 
   const deleteReservationHandler = (e) => {

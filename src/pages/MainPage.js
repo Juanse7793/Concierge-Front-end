@@ -5,7 +5,7 @@ import EventCard from '../components/EventCard';
 import Button from '../components/Button';
 
 const MainPage = () => {
-  const events = useSelector((state) => state.events);
+  const events = useSelector((state) => state.events.events);
   const [slice, setSlice] = useState(0);
 
   const [width, setWidth] = useState(window.innerWidth);

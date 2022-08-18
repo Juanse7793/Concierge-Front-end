@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Concierge from './concierge.png';
+import { signOut } from '../redux/reducers/users';
 import '../css/Sidebar.css';
 
 function Sidebar() {
@@ -11,6 +13,9 @@ function Sidebar() {
   const [hidden, setHidden] = useState(true);
   const toggle = () => setHidden(!hidden);
   const toggleClass = (hidden) => (hidden ? 'hidden' : '');
+
+  const dispatch = useDispatch();
+  const signOutHandler = () => { dispatch(signOut()); };
 
   return (
     <>
@@ -23,7 +28,7 @@ function Sidebar() {
           <NavLink to="/new-event" className={linkClass} onClick={toggle}>New Event</NavLink>
           <NavLink to="/all-events" className={linkClass} onClick={toggle}>Remove Event</NavLink>
           <NavLink to="/about" className={linkClass} onClick={toggle}>About</NavLink>
-          <button type="submit" className={`${linkClass} red`} onClick={toggle}>Sign Out</button>
+          <button type="submit" className={`${linkClass} red`} onClick={signOutHandler}>Sign Out</button>
         </div>
         <footer>
           <div className="social-media">

@@ -6,7 +6,7 @@ import '../css/DetailsPage.css';
 
 const DetailsPage = () => {
   const { id } = useParams();
-  const event = useSelector((state) => state.events).find(
+  const event = useSelector((state) => state.events.events).find(
     (event) => event.id.toString() === id,
   );
   const [width, setWidth] = useState(window.innerWidth);
