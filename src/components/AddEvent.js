@@ -1,31 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+// import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { useDispatch } from 'react-redux';
+import { addEvent } from '../redux/reducers/events';
 
 function AddEvent() {
-  const [valueStart, setValue1] = React.useState(null);
-  const [valueEnd, setValue2] = React.useState(null);
-  const [valueName, setName] = React.useState(null);
-  const [valueLocation, setLocation] = React.useState(null);
-  const [valuePrice, setPrice] = React.useState(null);
+  // eslint-disable-next-line camelcase
+  const [start_date, setStart] = useState();
+  // eslint-disable-next-line camelcase
+  const [end_date, setEnd] = useState();
+  const [name, setName] = useState();
+  const [location, setLocation] = useState();
+  const [price, setPrice] = useState();
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addEvent({
+      start_date, end_date, name, location, price,
+    }));
+    setName('');
+    setLocation('');
+    setPrice('');
+    setStart('');
+    setEnd('');
+  };
 
   const sx = {
     width: '500px',
     color: 'black',
-  };
-
-  const handleChangeName = (value) => {
-    setName(value);
-  };
-
-  const handleChangeLocation = (value) => {
-    setLocation(value);
-  };
-
-  const handleChangePrice = (value) => {
-    setPrice(value);
   };
 
   return (
@@ -33,57 +39,52 @@ function AddEvent() {
       <div className="add-event-header">
         <h1 className="add-event-title">Add Event</h1>
       </div>
-      <form className="add-event-form">
+      <form className="add-event-form" onSubmit={handleSubmit}>
         <TextField
-          value={valueName}
-          onChange={(e) => handleChangeName(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           sx={sx}
           id="event-name-input"
           label="Event Name"
           margin="normal"
         />
         <TextField
-          value={valueLocation}
-          onChange={(e) => handleChangeLocation(e.target.value)}
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
           sx={sx}
           id="event-location-input"
           label="Event Location"
           margin="normal"
         />
         <TextField
-          value={valuePrice}
-          onChange={(e) => handleChangePrice(e.target.value)}
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
           sx={sx}
           id="event-price-input"
           label="Event Price"
           margin="normal"
         />
-
         <div className="add-event-dates">
           <h2 className="add-event-dates-title">Event dates</h2>
         </div>
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <DatePicker
-            label="Start Date"
-            value={valueStart}
-            onChange={(newValue) => {
-              setValue1(newValue);
-            }}
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            renderInput={(params) => <TextField sx={sx} {...params} />}
-          />
-          <br />
-          <DatePicker
-            label="End Date"
-            value={valueEnd}
-            className="DatePicker"
-            onChange={(newValue) => {
-              setValue2(newValue);
-            }}
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            renderInput={(params) => <TextField sx={sx} {...params} />}
-          />
-        </LocalizationProvider>
+        <TextField
+          // eslint-disable-next-line camelcase
+          value={start_date}
+          onChange={(e) => setStart(e.target.value)}
+          sx={sx}
+          id="event-start-input"
+          label="Event Start"
+          margin="normal"
+        />
+        <TextField
+          // eslint-disable-next-line camelcase
+          value={end_date}
+          onChange={(e) => setEnd(e.target.value)}
+          sx={sx}
+          id="event-end-input"
+          label="Event End"
+          margin="normal"
+        />
         <div className="add-event-images">
           <h2 className="add-event-images-title">Event images</h2>
         </div>

@@ -20,6 +20,11 @@ const eventReducer = (state = initState, action) => {
         ...state,
         events: state.events.filter((event) => event.id !== Number(action.payload)),
       };
+    case 'ADD_EVENT':
+      return {
+        ...state,
+        events: [...state.events, action.payload],
+      };
   }
 };
 
@@ -39,6 +44,20 @@ export const deleteEvent = (id) => async (dispatch) => {
     return err;
   }
 };
+
+export const addEvent = (event) => async (dispatch) => {
+  try {
+    await api('events', 'POST', JSON.stringify(event));
+    dispatch({
+      type: 'ADD_EVENT',
+      payload: event,
+    });
+    return true;
+  } catch (err) {
+    return err;
+  }
+};
+
 // const eventsSlice = createSlice({
 //   /* eslint no-param-reassign: 0 */
 //   name: 'events',
