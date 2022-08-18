@@ -5,7 +5,7 @@ import Button from '../components/Button';
 import Sidebar from '../components/Sidebar';
 
 const MainPage = () => {
-  const events = useSelector((state) => state.eventReducer.events);
+  const events = useSelector((state) => state.events.events);
   const [slice, setSlice] = useState(0);
   const step = 3; // Math.floor((window.innerWidth - (86 * 2)) / 282);
   // console.log(step);

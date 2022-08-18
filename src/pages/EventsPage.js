@@ -3,7 +3,7 @@ import { deleteEvent } from '../redux/reducers/events';
 import Sidebar from '../components/Sidebar';
 
 const EventsPage = () => {
-  const events = useSelector((state) => state.eventReducer.events);
+  const events = useSelector((state) => state.events.events);
   const dispatch = useDispatch();
 
   const deleteEventHandler = (e) => {

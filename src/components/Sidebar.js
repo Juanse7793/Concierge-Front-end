@@ -1,10 +1,15 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Concierge from './concierge.png';
+import { signOut } from '../redux/reducers/users';
 
 function Sidebar() {
+  const dispatch = useDispatch();
+  const signOutHandler = () => { dispatch(signOut()); };
+
   return (
     <div className="side-bar-container column">
       <div className="side-bar-header">
@@ -16,7 +21,7 @@ function Sidebar() {
         <a href="/new-event" className="body-titles"><h3>New Event</h3></a>
         <a href="/all-events" className="body-titles"><h3>Remove Event</h3></a>
         <a href="/about" className="body-titles"><h3>About</h3></a>
-        <button type="submit" className="sign-out"><h3>Sign Out</h3></button>
+        <button type="submit" className="sign-out" onClick={signOutHandler}><h3>Sign Out</h3></button>
       </div>
       <div className="side-bar-footer">
         <div className="social-media">

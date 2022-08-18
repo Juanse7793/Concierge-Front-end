@@ -7,10 +7,13 @@ export default async (url = '', method = 'POST', body = '') => {
       headers: { 'Content-Type': 'application/json' },
       body,
     }).then((res) => res.json());
-    if (response.status === 201) {
+    if (response.status === 201 || !response.error) {
+      console.log('res: ', response);
       return response;
     }
+    console.error('error: ', response.error);
   } catch (err) {
+    console.error('err: ', response.error);
     return err;
   }
   return false;
