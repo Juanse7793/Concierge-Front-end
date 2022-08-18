@@ -13,7 +13,7 @@ export default async (url = '', method = 'POST', body = '') => {
     }
     console.error('error: ', response.error);
   } catch (err) {
-    console.error('err: ', response.error);
+    console.error('err: ', err);
     return err;
   }
   return false;

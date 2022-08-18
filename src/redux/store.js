@@ -13,5 +13,12 @@ const store = createStore(
   applyMiddleware(thunk, logger),
 );
 
+if (sessionStorage.getItem('user')) {
+  store.dispatch({
+    type: 'SIGNED_IN',
+    payload: JSON.parse(sessionStorage.getItem('user')),
+  });
+}
+
 store.dispatch(fetchEvent());
 export default store;

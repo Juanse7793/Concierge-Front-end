@@ -10,7 +10,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { NavLink } from 'react-router-dom';
-import { fetchUser } from '../redux/reducers/users';
+import { signIn } from '../redux/reducers/users';
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ export default function Login() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const username = data.get('username');
-    dispatch(fetchUser(username));
+    dispatch(signIn(username));
   };
 
   return (

@@ -9,6 +9,7 @@ const initState = {
 const userReducer = (state = initState, action) => {
   switch (action.type) {
     case 'SIGNED_IN':
+      sessionStorage.setItem('user', JSON.stringify(action.payload));
       return {
         ...state,
         user: action.payload,
@@ -16,6 +17,7 @@ const userReducer = (state = initState, action) => {
         error: '',
       };
     case 'SIGN_OUT':
+      sessionStorage.removeItem('user');
       return {
         initState,
       };
@@ -25,6 +27,7 @@ const userReducer = (state = initState, action) => {
         error: action.payload,
       };
     case 'SIGN_UP':
+      sessionStorage.setItem('user', JSON.stringify(action.payload));
       return {
         ...state,
         user: action.payload,
@@ -57,7 +60,7 @@ export const signUp = (name) => async (dispatch) => {
   }
 };
 
-export const fetchUser = (name) => async (dispatch) => {
+export const signIn = (name) => async (dispatch) => {
   await fetch('http://localhost:3000/api/v1/users')
     .then((response) => response.json())
     .then((list) => list.filter((user) => user.name === name))
