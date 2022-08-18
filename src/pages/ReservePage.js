@@ -12,8 +12,8 @@ const ReservePage = () => {
     (event) => event.id.toString() === id,
   );
 
-  const start = new Date(event.start);
-  const end = new Date(event.end);
+  const start = new Date(event.start_date);
+  const end = new Date(event.end_date);
   const [input, setInput] = useState({
     city: '',
     start,

@@ -3,9 +3,11 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import eventReducer, { fetchEvent } from './reducers/events';
 import userReducer from './reducers/users';
+import reservationReducer, { fetchReservation } from './reducers/reservations';
 
 const reducer = combineReducers({
   events: eventReducer,
+  reservations: reservationReducer,
   user: userReducer,
 });
 const store = createStore(
@@ -21,4 +23,5 @@ if (sessionStorage.getItem('user')) {
 }
 
 store.dispatch(fetchEvent());
+store.dispatch(fetchReservation());
 export default store;
