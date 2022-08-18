@@ -7,7 +7,7 @@ import Concierge from './concierge.png';
 import '../css/Sidebar.css';
 
 function Sidebar() {
-  const linkClass = 'pill semi prev link';
+  const linkClass = 'semi prev pill link';
   const [hidden, setHidden] = useState(true);
   const toggle = () => setHidden(!hidden);
   const toggleClass = (hidden) => (hidden ? 'hidden' : '');

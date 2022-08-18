@@ -32,6 +32,8 @@ h6 {
 }
 
 section {
+  --border: 4px groove var(--theme-lime);
+
   padding: 4rem 0;
   min-height: 100vh;
   width: 100%;
@@ -88,29 +90,6 @@ section {
   color: white;
 }
 
-/*
-.pill:enabled:hover {
-  animation: float infinite 3s ease-in-out;
-}
-*/
-
-@keyframes float {
-  0% {
-    transform: translateY(0) scale(1);
-    filter: brightness(1);
-  }
-
-  50% {
-    transform: translateY(10px) scale(1.1);
-    filter: brightness(1.2);
-  }
-
-  100% {
-    transform: translateY(0) scale(1);
-    filter: brightness(1);
-  }
-}
-
 .semi.prev {
   border-radius: 0 var(--curve) var(--curve) 0;
   padding-left: var(--long-end);
@@ -123,6 +102,29 @@ section {
   padding-left: 1.5rem;
 }
 
+/* .round {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border-radius: 50%;
+  padding: 0.5rem 0.75rem;
+} */
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+}
+
+ul li:nth-child(odd) {
+  background-color: #e2e3e5;
+}
+
+li.row {
+  padding: 0.5rem 1rem;
+  justify-content: space-between;
+}
+
 /* Main Page */
 .subtitle {
   font-size: 0.9rem;
@@ -131,7 +133,7 @@ section {
 
 /* Carausel / Transitions */
 .events-list {
-  --diameter: min(calc(calc(calc(80vw - 172px) / 3) - 4rem), 200px);
+  /* --diameter: calc(calc(calc(80vw - 172px) / 3) - 4rem); */
   --growth: 4rem;
 
   position: relative;
@@ -142,7 +144,7 @@ section {
 
 .transit {
   justify-content: space-around;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 .card-enter {
@@ -245,7 +247,7 @@ section {
   width: var(--diameter);
   border-radius: 50%;
   overflow: hidden;
-  border: 4px groove var(--theme-lime);
+  border: var(--border);
   transition: all 1s ease-in-out;
 }
 
@@ -280,62 +282,6 @@ section {
 
 .events-list .pill {
   margin-top: calc(var(--diameter) / 2);
-}
-
-/* DetailsPage */
-.details {
-  align-items: flex-start;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.side {
-  padding: 2rem;
-}
-
-.left {
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-.left > img {
-  max-width: 60vw;
-  max-width: calc(65vw - 180px);
-  max-height: calc(100vh - 13rem);
-  border: 4px groove var(--theme-lime);
-  margin-bottom: 2rem;
-}
-
-.left .pill {
-  margin-left: -2rem;
-}
-
-.right {
-  align-items: center;
-  justify-content: space-between;
-  text-align: right;
-}
-
-.right h1 {
-  margin-top: 0;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-ul li:nth-child(odd) {
-  background-color: #e2e3e5;
-}
-
-li.row {
-  padding: 0.5rem 1rem;
-  justify-content: space-between;
-}
-
-li.row :first-child {
-  margin-right: 3rem;
 }
 
 /* Events Page */
@@ -373,6 +319,7 @@ li.row :first-child {
 
 /* Reserve Page */
 .reserve {
+  position: relative;
   align-items: center;
   justify-content: center;
   color: white;
@@ -402,6 +349,12 @@ hr {
 
 .react-datepicker__day--keyboard-selected {
   background-color: #b6e222 !important;
+}
+
+.reserve .prev {
+  position: absolute;
+  top: 75%;
+  left: 0;
 }
 
 /* Add event page */
@@ -472,62 +425,11 @@ input::file-selector-button {
 }
 
 @media (max-width: 768px) {
-  .details {
-    color: white;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .details * {
-    transition: all 2s ease-in-out;
-  }
-
-  .details img {
-    position: fixed;
-    z-index: -1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-width: 0;
-    max-width: 100vw;
-    max-height: 100vh;
-    width: 100vw;
-    height: 100vh;
-    transition: all 0.5s ease-in-out;
-  }
-
-  .left {
-    width: 0;
-    height: 0;
-    padding: 0;
-    margin: 0;
-  }
-
   .left .pill {
     position: absolute;
     top: 1rem;
     right: 1rem;
     border-radius: 50%;
     padding: 0.5rem 0.75rem;
-  }
-
-  .right {
-    padding: 0;
-  }
-
-  .right h1 {
-    font-size: 10vw;
-    text-align: center;
-    text-shadow:
-      -1px 1px 5px var(--theme-lime),
-      1px 1px 5px var(--theme-lime),
-      1px -1px 5px var(--theme-lime),
-      -1px -1px 5px var(--theme-lime);
-  }
-
-  .right ul {
-    background-color: var(--theme-lime);
-    color: black;
   }
 }

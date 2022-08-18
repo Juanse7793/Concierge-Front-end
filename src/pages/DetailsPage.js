@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ListRow from '../components/ListRow';
+import '../css/DetailsPage.css';
 
 const DetailsPage = () => {
   const { id } = useParams();

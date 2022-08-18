@@ -1,12 +1,10 @@
 /* Sidebar */
 .side-bar-container {
-    z-index: 100;
-    justify-content: space-between;
+  z-index: 100;
+  justify-content: space-between;
   border-right: #8c8c8c 1px solid;
   min-height: 100vh;
   width: 20vw;
-  transition: all 2s ease-in-out;
-  border-radius: 0 0 0.5rem 0;
 }
 
 .side-bar-container img {
@@ -22,6 +20,10 @@
   font-size: small;
   color: var(--theme-dark-grey);
   margin: 4px;
+}
+
+.link.pill {
+  padding: 0.5rem 1rem;
 }
 
 .link.red {
@@ -55,6 +57,16 @@ footer {
     border: none;
   }
 
+  .burger::before {
+    margin-top: -0.25rem;
+    transform: translateY(-100%);
+  }
+
+  .burger::after {
+    margin-top: 0.25rem;
+    transform: translateY(100%);
+  }
+
   .burger,
   .burger::before,
   .burger::after {
@@ -72,16 +84,6 @@ footer {
     content: '';
     top: 0;
     left: 0;
-  }
-
-  .burger::before {
-    margin-top: -0.25rem;
-    transform: translateY(-100%);
-  }
-
-  .burger::after {
-    margin-top: 0.25rem;
-    transform: translateY(100%);
   }
 
   .burger.hidden {
@@ -104,6 +106,7 @@ footer {
     height: 100vh;
     overflow: hidden auto;
     box-shadow: 0 0 500px 100px var(--theme-lime);
+    transition: all 2s ease-in-out;
   }
 
   .side-bar-container.hidden {
