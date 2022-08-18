@@ -14,19 +14,32 @@ function AddEvent() {
   const [name, setName] = useState();
   const [location, setLocation] = useState();
   const [price, setPrice] = useState();
+  const [images, setImages] = useState([]);
 
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("This is the image (or not)")
+    console.log(images)
     dispatch(addEvent({
-      start_date, end_date, name, location, price,
+      start_date, end_date, name, location, price, images
     }));
     setName('');
     setLocation('');
     setPrice('');
     setStart('');
     setEnd('');
+    setImages([]);
+  };
+
+  const fileSelectedHandler = (e) => {
+    setImages([...e.target.files]);
+    console.log(images);
+    // setImages({images: [...e.target.files]});
+    // console.log(images);
+    console.log('The space I guess');
+    console.log(e.target.files);
   };
 
   const sx = {
@@ -88,7 +101,7 @@ function AddEvent() {
         <div className="add-event-images">
           <h2 className="add-event-images-title">Event images</h2>
         </div>
-        <input type="file" multiple id="new-event-image" />
+        <input type="file" multiple id="new-event-image" name="file" onInput={fileSelectedHandler} accept="image/*" />
         <input type="submit" id="submit-event" value="Add Event" />
       </form>
     </div>
