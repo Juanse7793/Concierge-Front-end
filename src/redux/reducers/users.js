@@ -34,6 +34,22 @@ const userReducer = (state = initState, action) => {
         signedIn: true,
         error: '',
       };
+    case 'DELETE_RESERVATION': {
+      const newReservations = state.user.reservations.filter(
+        (reservation) => reservation.id !== Number(action.payload),
+      );
+      sessionStorage.setItem(
+        'user',
+        JSON.stringify({ ...state.user, reservations: newReservations }),
+      );
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          reservations: newReservations,
+        },
+      };
+    }
     default:
       return state;
   }
@@ -48,11 +64,10 @@ export const signOut = (id) => async (dispatch) => {
 
 export const signUp = (name) => async (dispatch) => {
   try {
-    await api('users', 'POST', JSON.stringify({ name }))
-      .then((user) => {
-        if (user) dispatch({ type: 'SIGN_UP', payload: user });
-        else dispatch({ type: 'ERROR', payload: 'Username already exists' });
-      });
+    await api('users', 'POST', JSON.stringify({ name })).then((user) => {
+      if (user) dispatch({ type: 'SIGN_UP', payload: user });
+      else dispatch({ type: 'ERROR', payload: 'Username already exists' });
+    });
     return true;
   } catch (err) {
     dispatch({ type: 'ERROR', payload: err });
@@ -69,6 +84,19 @@ export const signIn = (name) => async (dispatch) => {
       else dispatch({ type: 'ERROR', payload: 'User not found' });
     })
     .catch(() => dispatch({ type: 'SIGNING_IN' }));
+};
+
+export const deleteReservation = (id1, id2) => async (dispatch) => {
+  try {
+    await api(`users/${id1}/reservations/${id2}`, 'DELETE', '');
+    dispatch({
+      type: 'DELETE_RESERVATION',
+      payload: id2,
+    });
+    return true;
+  } catch (err) {
+    return err;
+  }
 };
 
 export default userReducer;
