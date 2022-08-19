@@ -1,28 +1,25 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteReservation } from '../redux/reducers/reservations';
+import { deleteReservation } from '../redux/reducers/users';
 import Sidebar from './Sidebar';
 
 const ReservationsPage = () => {
   const user = useSelector((state) => state.user.user);
   const events = useSelector((state) => state.events.events);
-  const reservations = useSelector((state) => state.reservations.reservations.filter(
-    (reservation) => reservation.user_id === user.id,
-  ));
   const dispatch = useDispatch();
 
   const deleteReservationHandler = (e) => {
-    dispatch(deleteReservation(Number(e.target.id)));
+    dispatch(deleteReservation(Number(user.id), Number(e.target.id)));
   };
 
   return (
     <div className="row">
       <Sidebar />
       <section>
-        {reservations.map((reservation) => (
+        {user.reservations.map((reservation) => (
           <ul key={reservation.id}>
             <li className="row reservation-name">
               <p>
-                {events.find((event) => event.id === reservation.event_id).name}
+                {events.length > 0 ? events.find((event) => event.id === reservation.event_id).name : ''}
               </p>
               <button
                 type="button"
