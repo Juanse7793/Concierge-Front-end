@@ -28,10 +28,6 @@ const eventReducer = (state = initState, action) => {
   }
 };
 
-// export const deleteEvent = (id) => async (dispatch) => {
-//   dispatch({ type: 'DELETE_EVENT', payload: id });
-// };
-
 export const deleteEvent = (id) => async (dispatch) => {
   try {
     await api(`events/${id}`, 'DELETE', '');

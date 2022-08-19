@@ -5,9 +5,7 @@ import { useDispatch } from 'react-redux';
 import { addEvent } from '../redux/reducers/events';
 
 function AddEvent() {
-  // eslint-disable-next-line camelcase
   const [startDate, setStart] = useState();
-  // eslint-disable-next-line camelcase
   const [endDate, setEnd] = useState();
   const [name, setName] = useState();
   const [location, setLocation] = useState();

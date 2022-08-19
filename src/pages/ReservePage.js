@@ -34,7 +34,7 @@ const ReservePage = () => {
           <h1>{`BOOK A TICKET TO ${event.name.toUpperCase()}`}</h1>
           <hr />
           <ReserveText />
-          <div className="inputs">
+          <form className="inputs">
             <InputText text="City" value={input.city} func={setInputData} />
             <div className="out focus">
               <DatePicker
@@ -50,8 +50,8 @@ const ReservePage = () => {
               {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
               <label>Reserved Dates</label>
             </div>
-            <input type="submit" value="Book Now" className="pill white" />
-          </div>
+            <input type="submit" name="submit" value="Book Now" className="pill white" />
+          </form>
           <Link to={`/events/${id}`} className="pill semi prev white moving">◁</Link>
         </div>
       )}
