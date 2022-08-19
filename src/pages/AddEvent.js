@@ -8,9 +8,9 @@ import { addEvent } from '../redux/reducers/events';
 
 function AddEvent() {
   // eslint-disable-next-line camelcase
-  const [start_date, setStart] = useState();
+  const [startDate, setStart] = useState();
   // eslint-disable-next-line camelcase
-  const [end_date, setEnd] = useState();
+  const [endDate, setEnd] = useState();
   const [name, setName] = useState();
   const [location, setLocation] = useState();
   const [price, setPrice] = useState();
@@ -20,9 +20,8 @@ function AddEvent() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addEvent({
-      start_date, end_date, name, location, price,
+      start_date: startDate, end_date: endDate, name, location, price,
     }));
-    setName('');
     setLocation('');
     setPrice('');
     setStart('');
@@ -69,7 +68,7 @@ function AddEvent() {
         </div>
         <TextField
           // eslint-disable-next-line camelcase
-          value={start_date}
+          value={startDate}
           onChange={(e) => setStart(e.target.value)}
           sx={sx}
           id="event-start-input"
@@ -78,7 +77,7 @@ function AddEvent() {
         />
         <TextField
           // eslint-disable-next-line camelcase
-          value={end_date}
+          value={endDate}
           onChange={(e) => setEnd(e.target.value)}
           sx={sx}
           id="event-end-input"

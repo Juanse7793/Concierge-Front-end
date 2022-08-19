@@ -9,7 +9,7 @@ const eventReducer = (state = initState, action) => {
     case 'FETCHING_EVENT':
       return {
         ...state,
-        loaded: true,
+        loading: true,
       };
     case 'COMPLETE_EVENT':
       return { events: action.payload };
@@ -58,23 +58,6 @@ export const addEvent = (event) => async (dispatch) => {
   }
 };
 
-// const eventsSlice = createSlice({
-//   /* eslint no-param-reassign: 0 */
-//   name: 'events',
-//   initialState,
-//   reducers: {
-//     getEvents(state, action) {
-//       return action.payload;
-//     },
-//     addEvent(state, action) {
-//       return [...state, action.payload];
-//     },
-//     deleteEvent(state, action) {
-//       return state.filter((event) => event.id !== action.payload);
-//     },
-//   },
-// });
-
 export const fetchEvent = () => async (dispatch) => {
   dispatch({ type: 'FETCHING_EVENT' });
   await fetch('http://localhost:3000/api/v1/events')
@@ -86,5 +69,3 @@ export const fetchEvent = () => async (dispatch) => {
 };
 
 export default eventReducer;
-// export const { getEvents, addEvent, deleteEvent } = eventsSlice.actions;
-// export default eventsSlice.reducer;

@@ -8,17 +8,13 @@ import '../css/ReservePage.css';
 
 const ReservePage = () => {
   const { id } = useParams();
-  const event = useSelector((state) => state.events.events).find(
-    (event) => event.id.toString() === id,
-  );
+  const { events, loading } = useSelector((state) => state.events);
 
-  const start = new Date(event.start);
-  const end = new Date(event.end);
-  const [input, setInput] = useState({
-    city: '',
-    start,
-    end,
-  });
+  const event = events.find((event) => event.id.toString() === id);
+  const start = event ? new Date(event.start_date) : new Date();
+  const end = event ? new Date(event.end_date) : new Date();
+
+  const [input, setInput] = useState({ city: '', start, end});
   const setInputData = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
@@ -28,35 +24,46 @@ const ReservePage = () => {
 
   return (
     <section className="column reserve background">
-      <div className="center">
-        <h1>{`BOOK A TICKET TO ${event.name.toUpperCase()}`}</h1>
-        <hr />
-        <ReserveText />
-        <div className="inputs">
-          <input
-            type="text"
-            name="city"
-            placeholder="City"
-            value={input.city}
-            onChange={(e) => setInputData(e)}
-            required
-            autoComplete="off"
-            className="pill green border"
-          />
-          <DatePicker
-            selectsRange
-            minDate={start}
-            maxDate={end}
-            startDate={startDate}
-            endDate={endDate}
-            popperPlacement="top-end"
-            onChange={(e) => setDateRange(e)}
-            className="pill green border"
-          />
-          <input type="submit" name="submit" value="Book Now" className="pill white" />
+      {loading ? (
+        <h1>Please wait...</h1>
+      ) : (
+        <div className="center">
+          <h1>{`BOOK A TICKET TO ${event.name.toUpperCase()}`}</h1>
+          <hr />
+          <ReserveText />
+          <div className="inputs">
+            <input
+              type="text"
+              name="city"
+              placeholder="City"
+              value={input.city}
+              onChange={(e) => setInputData(e)}
+              required
+              autoComplete="off"
+              className="pill green border"
+            />
+            <DatePicker
+              selectsRange
+              minDate={start}
+              maxDate={end}
+              startDate={startDate}
+              endDate={endDate}
+              popperPlacement="top-end"
+              onChange={(e) => setDateRange(e)}
+              className="pill green border"
+            />
+            <input
+              type="submit"
+              name="submit"
+              value="Book Now"
+              className="pill white"
+            />
+          </div>
+          <Link to={`/events/${id}`} className="pill semi prev white moving">
+            ◁
+          </Link>
         </div>
-        <Link to={`/events/${id}`} className="pill semi prev white moving">◁</Link>
-      </div>
+      )}
     </section>
   );
 };
