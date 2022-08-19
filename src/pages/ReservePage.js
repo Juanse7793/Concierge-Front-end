@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import ReserveText from '../components/ReserveText';
-import InputText from '../components/InputText';
+import { InputText, DateRange } from '../components/InputText';
 import '../css/ReservePage.css';
-import '../css/InputText.css';
 
 const ReservePage = () => {
   const { id } = useParams();
@@ -36,21 +33,14 @@ const ReservePage = () => {
           <ReserveText />
           <form className="inputs">
             <InputText text="City" value={input.city} func={setInputData} />
-            <div className="out focus">
-              <DatePicker
-                selectsRange
-                minDate={start}
-                maxDate={end}
-                startDate={startDate}
-                endDate={endDate}
-                popperPlacement="top-end"
-                onChange={(e) => setDateRange(e)}
-                className="pill green white-border"
-              />
-              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-              <label>Reserved Dates</label>
-            </div>
-            <input type="submit" name="submit" value="Book Now" className="pill white" />
+            <DateRange
+              minDate={start}
+              maxDate={end}
+              startDate={startDate}
+              endDate={endDate}
+              func={setDateRange}
+            />
+            <input type="submit" value="Book Now" className="pill white" />
           </form>
           <Link to={`/events/${id}`} className="pill semi prev white moving">◁</Link>
         </div>

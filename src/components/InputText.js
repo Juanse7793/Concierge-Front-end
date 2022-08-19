@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../css/InputText.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-const InputText = ({
+export const InputText = ({
   text,
   value,
   func,
@@ -48,4 +50,38 @@ InputText.propTypes = {
   value: PropTypes.string.isRequired,
 };
 
-export default InputText;
+export const DateRange = ({
+  minDate,
+  maxDate,
+  startDate,
+  endDate,
+  func,
+}) => (
+  <div className="out focus">
+    <DatePicker
+      selectsRange
+      minDate={minDate}
+      maxDate={maxDate}
+      startDate={startDate}
+      endDate={endDate}
+      popperPlacement="top-end"
+      onChange={(e) => func(e)}
+      className="pill green white-border"
+    />
+    {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+    <label>Reserved Dates</label>
+  </div>
+);
+
+DateRange.defaultProps = {
+  minDate: new Date('2000/12/12'),
+  maxDate: new Date('2100/12/12'),
+};
+
+DateRange.propTypes = {
+  minDate: PropTypes.instanceOf(Date),
+  maxDate: PropTypes.instanceOf(Date),
+  startDate: PropTypes.instanceOf(Date).isRequired,
+  endDate: PropTypes.instanceOf(Date).isRequired,
+  func: PropTypes.func.isRequired,
+};

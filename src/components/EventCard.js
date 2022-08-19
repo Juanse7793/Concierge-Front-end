@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const EventCard = ({ event }) => (
   <Link to={`/events/${event.id}`} className="event-card column">
     <div className="circle">
-      <img src={event.image} className="eventImage" alt="" />
+      <img src={event.image_urls[0]} className="eventImage" alt="" />
     </div>
     <h3 className="event-card-title">{event.name}</h3>
     <p className="event-card-details">{event.location}</p>
@@ -13,14 +13,20 @@ const EventCard = ({ event }) => (
   </Link>
 );
 
+EventCard.defaultProps = {
+  event: {
+    image_urls: [],
+  },
+};
+
 EventCard.propTypes = {
   event: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-  }).isRequired,
+    image_urls: PropTypes.arrayOf(PropTypes.string),
+  }),
 };
 
 export default EventCard;

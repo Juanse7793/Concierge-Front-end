@@ -24,15 +24,6 @@ hr {
   width: 315px;
 }
 
-.react-datepicker__day--in-range,
-.react-datepicker__day--in-selecting-range {
-  background-color: var(--theme-lime) !important;
-}
-
-.react-datepicker__day--keyboard-selected {
-  background-color: #b6e222 !important;
-}
-
 .reserve .prev {
   position: absolute;
   top: 75%;

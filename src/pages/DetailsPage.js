@@ -16,7 +16,7 @@ const DetailsPage = () => {
 
   const wide = width > 768;
   const style = !event ? {} : {
-    background: `url(${event.image}) no-repeat center / cover`,
+    background: `url(${event.image_urls[0]}) no-repeat center / cover`,
   };
 
   return (
@@ -26,7 +26,7 @@ const DetailsPage = () => {
       ) : (
         <>
           <div className="side left column">
-            {wide ? <img src={event.image} alt={event.name} /> : null}
+            {wide ? <img src={event.image_urls[0]} alt={event.name} /> : null}
             <Link
               to="/"
               className={`semi ${wide ? 'green' : 'white'} moving pill prev`}
