@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
-// import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 // import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { useDispatch } from 'react-redux';
 import { addEvent } from '../redux/reducers/events';
@@ -41,6 +39,7 @@ function AddEvent() {
       <form className="add-event-form column" onSubmit={handleSubmit}>
         <TextField
           value={name}
+          color="secondary"
           onChange={(e) => setName(e.target.value)}
           sx={sx}
           id="event-name-input"

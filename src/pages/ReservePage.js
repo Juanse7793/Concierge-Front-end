@@ -4,7 +4,9 @@ import { useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import ReserveText from '../components/ReserveText';
+import InputText from '../components/InputText';
 import '../css/ReservePage.css';
+import '../css/InputText.css';
 
 const ReservePage = () => {
   const { id } = useParams();
@@ -13,8 +15,9 @@ const ReservePage = () => {
   const event = events.find((event) => event.id.toString() === id);
   const start = event ? new Date(event.start_date) : new Date();
   const end = event ? new Date(event.end_date) : new Date();
+  console.log('start', event, start);
 
-  const [input, setInput] = useState({ city: '', start, end});
+  const [input, setInput] = useState({ city: '', start, end });
   const setInputData = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
@@ -32,36 +35,24 @@ const ReservePage = () => {
           <hr />
           <ReserveText />
           <div className="inputs">
-            <input
-              type="text"
-              name="city"
-              placeholder="City"
-              value={input.city}
-              onChange={(e) => setInputData(e)}
-              required
-              autoComplete="off"
-              className="pill green border"
-            />
-            <DatePicker
-              selectsRange
-              minDate={start}
-              maxDate={end}
-              startDate={startDate}
-              endDate={endDate}
-              popperPlacement="top-end"
-              onChange={(e) => setDateRange(e)}
-              className="pill green border"
-            />
-            <input
-              type="submit"
-              name="submit"
-              value="Book Now"
-              className="pill white"
-            />
+            <InputText text="City" value={input.city} func={setInputData} />
+            <div className="out focus">
+              <DatePicker
+                selectsRange
+                minDate={start}
+                maxDate={end}
+                startDate={startDate}
+                endDate={endDate}
+                popperPlacement="top-end"
+                onChange={(e) => setDateRange(e)}
+                className="pill green white-border"
+              />
+              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+              <label>Reserved Dates</label>
+            </div>
+            <input type="submit" value="Book Now" className="pill white" />
           </div>
-          <Link to={`/events/${id}`} className="pill semi prev white moving">
-            ◁
-          </Link>
+          <Link to={`/events/${id}`} className="pill semi prev white moving">◁</Link>
         </div>
       )}
     </section>

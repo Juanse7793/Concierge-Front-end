@@ -9,18 +9,22 @@ import { signOut } from '../redux/reducers/users';
 import '../css/Sidebar.css';
 
 function Sidebar() {
-  const linkClass = 'semi prev pill link';
+  const linkClass = 'semi prev pill link no-shadow';
   const [hidden, setHidden] = useState(true);
   const toggle = () => setHidden(!hidden);
-  const toggleClass = (hidden) => (hidden ? 'hidden' : '');
+  const toggleClass = (hidden) => (hidden ? 'hidden green' : 'white');
 
   const dispatch = useDispatch();
   const signOutHandler = () => { dispatch(signOut()); };
 
   return (
     <>
-      <button className={`burger ${toggleClass(!hidden)}`} type="button" onClick={toggle}>-</button>
-      <nav className={`side-bar-container column ${toggleClass(hidden)}`}>
+      <button className={`burger-div pill ${toggleClass(!hidden)}`} type="button" onClick={toggle}>
+        <div className="burger top" />
+        <div className="burger mid" />
+        <div className="burger bot" />
+      </button>
+      <nav className={`column ${toggleClass(hidden)}`}>
         <img src={Concierge} alt="Concierge Logo" />
         <div className="side-bar-body column">
           <NavLink to="/" className={linkClass} onClick={toggle}>Home</NavLink>

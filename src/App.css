@@ -64,6 +64,7 @@ section {
   color: #2c2c2c;
 }
 
+/* Buttons */
 .pill {
   --long-end: 3rem;
   --curve: 2rem;
@@ -77,6 +78,10 @@ section {
   padding: 1rem var(--long-end);
   text-transform: uppercase;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.no-shadow {
+  box-shadow: none;
 }
 
 .pill:hover {
@@ -146,7 +151,8 @@ li.row {
 
 /* Carausel / Transitions */
 .events-list {
-  /* --diameter: calc(calc(calc(80vw - 172px) / 3) - 4rem); */
+  /* --diameter: canc(var(--aw) / calc(var(--step) - 32)); */
+  --diameter: 250px;
   --growth: 4rem;
 
   position: relative;
