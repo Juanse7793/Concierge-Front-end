@@ -54,7 +54,9 @@ section {
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: luminosity;
+
   /* background-blend-mode: multiply; */
+
   /* background-blend-mode: soft-light; */
 }
 
@@ -140,18 +142,18 @@ li.row {
 
 .black-glow {
   text-shadow:
-  -1px 1px 5px black,
-  1px 1px 5px black,
-  1px -1px 5px black,
-  -1px -1px 5px black;
+    -1px 1px 5px black,
+    1px 1px 5px black,
+    1px -1px 5px black,
+    -1px -1px 5px black;
 }
 
 .green-glow {
   text-shadow:
-  -1px 1px 5px var(--theme-lime),
-  1px 1px 5px var(--theme-lime),
-  1px -1px 5px var(--theme-lime),
-  -1px -1px 5px var(--theme-lime);
+    -1px 1px 5px var(--theme-lime),
+    1px 1px 5px var(--theme-lime),
+    1px -1px 5px var(--theme-lime),
+    -1px -1px 5px var(--theme-lime);
 }
 
 /* Events/Reservations Page */
@@ -210,9 +212,6 @@ input::file-selector-button {
   .row.pill.list {
     flex-direction: column;
     align-items: center;
-  }
-
-  .row.pill.list {
-    justify-content: space-around;
+    text-align: center;
   }
 }

@@ -1,25 +1,41 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ReserveText from '../components/ReserveText';
 import { InputText, DateRange } from '../components/Inputs';
+import { addReservation } from '../redux/reducers/users';
 import '../css/ReservePage.css';
 
 const ReservePage = () => {
   const { id } = useParams();
+  const user = useSelector((state) => state.user.user);
   const { events, loading } = useSelector((state) => state.events);
 
   const event = events.find((event) => event.id.toString() === id);
   const start = event ? new Date(event.start_date) : new Date();
   const end = event ? new Date(event.end_date) : new Date();
 
-  const [input, setInput] = useState({ city: '', start, end });
+  const [input, setInput] = useState({
+    city: '',
+    start,
+    end,
+    user_id: user.id,
+    event_id: event.id,
+  });
   const setInputData = (e) => {
     setInput({ ...input, [e.name]: e.value });
   };
 
   const [dateRange, setDateRange] = useState([start, end]);
   const [startDate, endDate] = dateRange;
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addReservation(Number(user.id), input));
+    setInput({ city: '', start: startDate, end: endDate });
+  };
 
   return (
     <section className="column reserve background">
@@ -30,7 +46,7 @@ const ReservePage = () => {
           <h1 className="black-glow">{`BOOK A TICKET TO ${event.name.toUpperCase()}`}</h1>
           <hr />
           <ReserveText />
-          <form className="inputs">
+          <form className="inputs" onSubmit={handleSubmit}>
             <InputText text="City" value={input.city} func={(e) => setInputData(e.target)} />
             <DateRange
               minDate={start}

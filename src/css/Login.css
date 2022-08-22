@@ -1,11 +1,8 @@
 /* LoginPage */
 .login {
   background: #fff;
-  height: fit-content;
   display: flex;
   align-items: flex-start;
-
-  /* justify-content: center; */
   border: 4px solid #fff;
   border-radius: 20px;
   padding: 2.5rem;

@@ -91,7 +91,7 @@ footer {
     z-index: 100;
     position: fixed;
     background-color: white;
-    width: min(250px, 100vw);
+    width: min(250px, 100vw); /* stylelint-disable-line csstree/validator */
     height: 100vh;
     overflow: hidden auto;
     box-shadow: 0 0 500px 100px var(--theme-lime);

@@ -14,7 +14,7 @@
   position: absolute;
   font-size: 1rem;
   font-weight: bold;
-  font-family: Tahoma;
+  font-family: Tahoma, sans-serif;
   text-transform: uppercase;
   top: calc(1rem + 2px);
   left: var(--left);

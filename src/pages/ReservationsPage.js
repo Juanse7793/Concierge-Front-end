@@ -20,6 +20,7 @@ const ReservationsPage = () => {
               name={events.find((event) => event.id === reservation.event_id).name}
               start={reservation.start_date}
               end={reservation.end_date}
+              id={reservation.id}
               deleteFunc={deleteReservationHandler}
             />
           )}

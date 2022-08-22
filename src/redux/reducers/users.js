@@ -50,6 +50,20 @@ const userReducer = (state = initState, action) => {
         },
       };
     }
+    case 'ADD_RESERVATION': {
+      const newReservations = [...state.user.reservations, action.payload];
+      sessionStorage.setItem(
+        'user',
+        JSON.stringify({ ...state.user, reservations: newReservations }),
+      );
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          reservations: newReservations,
+        },
+      };
+    }
     default:
       return state;
   }
@@ -93,6 +107,19 @@ export const deleteReservation = (id1, id2) => async (dispatch) => {
     dispatch({
       type: 'DELETE_RESERVATION',
       payload: id2,
+    });
+    return true;
+  } catch (err) {
+    return err;
+  }
+};
+
+export const addReservation = (id, reservation) => async (dispatch) => {
+  try {
+    await api(`users/${id}/reservations`, 'POST', JSON.stringify(reservation));
+    dispatch({
+      type: 'ADD_RESERVATION',
+      payload: reservation,
     });
     return true;
   } catch (err) {

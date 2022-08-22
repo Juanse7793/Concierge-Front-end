@@ -8,7 +8,6 @@ const EventsPage = () => {
 
   const deleteEventHandler = (e) => {
     dispatch(deleteEvent(Number(e.target.id)));
-    // deleteEvent(Number(e.target.id));
   };
 
   return (
@@ -19,6 +18,7 @@ const EventsPage = () => {
             name={event.name}
             start={event.start_date}
             end={event.end_date}
+            id={event.id}
             deleteFunc={deleteEventHandler}
           />
         </ul>
