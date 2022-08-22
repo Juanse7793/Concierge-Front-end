@@ -20,9 +20,15 @@ const eventReducer = (state = initState, action) => {
         ...state,
         events: state.events.filter((event) => event.id !== Number(action.payload)),
       };
+    case 'ADDING_EVENT':
+      return {
+        ...state,
+        adding: false,
+      };
     case 'ADD_EVENT':
       return {
         ...state,
+        adding: true,
         events: [...state.events, action.payload],
       };
   }
@@ -52,11 +58,12 @@ export const deleteEvent = (id) => async (dispatch) => {
 
 export const addEvent = (event) => async (dispatch) => {
   try {
+    dispatch({ type: 'ADDING_EVENT' });
     await api('events', 'POST', event, '');
     dispatch({
       type: 'ADD_EVENT',
       payload: event,
-    }).then(fetchEvents());
+    });
     return true;
   } catch (err) {
     return err;

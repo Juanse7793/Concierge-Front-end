@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addEvent } from '../redux/reducers/events';
 import { InputText, DateRange } from '../components/Inputs';
 
@@ -12,6 +12,11 @@ function AddEvent() {
     start_date: '',
     end_date: '',
   });
+
+  const adding = useSelector((state) => state.events.adding);
+  if (adding) {
+    window.location.href = '/';
+  }
 
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
