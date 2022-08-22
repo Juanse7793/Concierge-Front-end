@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ReserveText = () => (
-  <p>
+  <p className="black-glow">
     Hello and welcome to the
     <b> CONCIERGE EVENT RESERVATION.</b>
     <br />

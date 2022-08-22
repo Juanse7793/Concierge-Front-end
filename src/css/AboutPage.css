@@ -1,0 +1,32 @@
+/* About page */
+
+.authors-div-body {
+  align-items: center;
+  justify-content: space-around;
+}
+
+.about-main-container {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.about-text {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 1rem 3rem;
+}
+
+.authors-div-body-item {
+  width: 30%;
+}
+
+.authors-div-body-item img {
+  width: 90%;
+}
+
+.about-icons {
+  text-decoration: none;
+  color: black;
+}

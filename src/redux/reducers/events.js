@@ -54,7 +54,7 @@ export const addEvent = (event) => async (dispatch) => {
   }
 };
 
-export const fetchEvent = () => async (dispatch) => {
+export const fetchEvents = () => async (dispatch) => {
   dispatch({ type: 'FETCHING_EVENT' });
   await fetch('http://localhost:3000/api/v1/events')
     .then((response) => response.json())

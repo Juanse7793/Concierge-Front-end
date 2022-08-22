@@ -17,6 +17,10 @@ hr {
   width: 80%;
 }
 
+.inputs {
+  --left: 7rem;
+}
+
 .border {
   border: 2px solid white;
   margin: 1rem;

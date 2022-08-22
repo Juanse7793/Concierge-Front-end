@@ -5,6 +5,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import Zaman from '../components/zaman.png';
 import Juan from '../components/juan.png';
 import Tafara from '../components/tafara.png';
+import '../css/AboutPage.css';
 
 function AboutPage() {
   return (

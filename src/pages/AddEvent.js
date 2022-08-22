@@ -1,91 +1,59 @@
 import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
-// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { useDispatch } from 'react-redux';
-import { addEvent } from '../redux/reducers/events';
+import { addEvent, fetchEvents } from '../redux/reducers/events';
+import { InputText, DateRange } from '../components/Inputs';
 
 function AddEvent() {
-  const [startDate, setStart] = useState();
-  const [endDate, setEnd] = useState();
-  const [name, setName] = useState();
-  const [location, setLocation] = useState();
-  const [price, setPrice] = useState();
+  const [dateRange, setDateRange] = useState([null, null]);
+  const [startDate, endDate] = dateRange;
 
-  const dispatch = useDispatch();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(addEvent({
-      start_date: startDate, end_date: endDate, name, location, price,
-    }));
-    setLocation('');
-    setPrice('');
-    setStart('');
-    setEnd('');
+  const [input, setInput] = useState({ name: '', location: '', price: '' });
+  const setInputData = (e) => {
+    setInput({ ...input, [e.name]: e.value });
   };
 
-  const sx = {
-    width: '500px',
-    color: 'black',
+  const dispatch = useDispatch();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(
+      addEvent({
+        start_date: startDate,
+        end_date: endDate,
+        ...input,
+      }),
+    );
+    const finished = dispatch(fetchEvents());
+    if (finished) { window.location.href = window.location.href.slice(0, -9); }
   };
 
   return (
     <section className="add-event-main background column">
-      <div className="add-event-header">
-        <h1 className="add-event-title">Add Event</h1>
-      </div>
       <form className="add-event-form column" onSubmit={handleSubmit}>
-        <TextField
-          value={name}
-          color="secondary"
-          onChange={(e) => setName(e.target.value)}
-          sx={sx}
-          id="event-name-input"
-          label="Event Name"
-          margin="normal"
+        <h1 className="add-event-title black-glow">Add Event</h1>
+        <InputText
+          text="Name"
+          value={input.name}
+          func={(e) => setInputData(e.target)}
         />
-        <TextField
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-          sx={sx}
-          id="event-location-input"
-          label="Event Location"
-          margin="normal"
+        <InputText
+          text="Location"
+          value={input.location}
+          func={(e) => setInputData(e.target)}
         />
-        <TextField
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          sx={sx}
-          id="event-price-input"
-          label="Event Price"
-          margin="normal"
+        <InputText
+          text="Price"
+          value={input.price}
+          func={(e) => setInputData(e.target)}
         />
-        <div className="add-event-dates">
-          <h2 className="add-event-dates-title">Event dates</h2>
-        </div>
-        <TextField
-          // eslint-disable-next-line camelcase
-          value={startDate}
-          onChange={(e) => setStart(e.target.value)}
-          sx={sx}
-          id="event-start-input"
-          label="Event Start"
-          margin="normal"
+        <DateRange
+          startDate={startDate}
+          endDate={endDate}
+          func={(e) => setDateRange(e)}
         />
-        <TextField
-          // eslint-disable-next-line camelcase
-          value={endDate}
-          onChange={(e) => setEnd(e.target.value)}
-          sx={sx}
-          id="event-end-input"
-          label="Event End"
-          margin="normal"
-        />
-        <div className="add-event-images">
-          <h2 className="add-event-images-title">Event images</h2>
-        </div>
+
+        <h2 className="add-event-images-title black-glow">Event Images</h2>
         <input type="file" multiple id="new-event-image" />
-        <input type="submit" id="submit-event" value="Add Event" />
+        <input type="submit" value="Add Event" className="pill white" />
       </form>
     </section>
   );

@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteEvent } from '../redux/reducers/events';
+import ListItem from '../components/ListItem';
 
 const EventsPage = () => {
   const events = useSelector((state) => state.events.events);
@@ -14,10 +15,12 @@ const EventsPage = () => {
     <section>
       {events.map((event) => (
         <ul key={event.id}>
-          <li className="row event-name">
-            <p>{event.name}</p>
-            <button type="button" className="delete-btn" id={event.id} onClick={deleteEventHandler}>Delete</button>
-          </li>
+          <ListItem
+            name={event.name}
+            start={event.start_date}
+            end={event.end_date}
+            deleteFunc={deleteEventHandler}
+          />
         </ul>
       ))}
     </section>

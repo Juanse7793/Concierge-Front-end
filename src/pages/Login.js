@@ -21,7 +21,8 @@ export default function Login() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const username = data.get('username');
-    sign ? dispatch(signIn(username)) : dispatch(signUp(username));
+    if (sign) dispatch(signIn(username));
+    else dispatch(signUp(username));
   };
 
   return (

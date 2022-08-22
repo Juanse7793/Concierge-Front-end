@@ -75,9 +75,9 @@ footer {
     transition: all 1s ease-in-out;
   }
 
-    .hidden .burger.top {
-      transform: rotate(45deg) translate(7px, 5px) skew(50deg) scale(1.3, 0.7);
-    }
+  .hidden .burger.top {
+    transform: rotate(45deg) translate(7px, 5px) skew(50deg) scale(1.3, 0.7);
+  }
 
   .hidden .burger.mid {
     background-color: transparent;

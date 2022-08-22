@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../css/InputText.css';
+import '../css/Inputs.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -13,7 +13,6 @@ export const InputText = ({
   autoComplete,
 }) => {
   const focus = (e) => {
-    console.log('focus', e, e.parentNode);
     e.parentNode.classList.toggle('focus', e === document.activeElement || e.value !== '');
   };
 
@@ -22,8 +21,9 @@ export const InputText = ({
       <input
         type="text"
         name={text.toLowerCase()}
+        id={text.toLowerCase()}
         value={value}
-        onChange={(e) => func(e)}
+        onChange={func}
         required={required}
         onFocus={(e) => focus(e.target)}
         onBlur={(e) => focus(e.target)}
@@ -39,6 +39,7 @@ InputText.defaultProps = {
   className: '',
   required: false,
   autoComplete: 'off',
+  value: '',
 };
 
 InputText.propTypes = {
@@ -47,10 +48,11 @@ InputText.propTypes = {
   autoComplete: PropTypes.string,
   text: PropTypes.string.isRequired,
   func: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
 };
 
 export const DateRange = ({
+  text,
   minDate,
   maxDate,
   startDate,
@@ -64,24 +66,30 @@ export const DateRange = ({
       maxDate={maxDate}
       startDate={startDate}
       endDate={endDate}
+      dateFormat="yyyy-MM-dd"
       popperPlacement="top-end"
+      showDisabledMonthNavigation
       onChange={(e) => func(e)}
       className="pill green white-border"
     />
     {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-    <label>Reserved Dates</label>
+    <label>{text}</label>
   </div>
 );
 
 DateRange.defaultProps = {
-  minDate: new Date('2000/12/12'),
-  maxDate: new Date('2100/12/12'),
+  minDate: null,
+  maxDate: null,
+  startDate: null,
+  endDate: null,
+  text: 'Dates',
 };
 
 DateRange.propTypes = {
+  text: PropTypes.string,
   minDate: PropTypes.instanceOf(Date),
   maxDate: PropTypes.instanceOf(Date),
-  startDate: PropTypes.instanceOf(Date).isRequired,
-  endDate: PropTypes.instanceOf(Date).isRequired,
+  startDate: PropTypes.instanceOf(Date),
+  endDate: PropTypes.instanceOf(Date),
   func: PropTypes.func.isRequired,
 };
