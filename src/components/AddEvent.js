@@ -21,13 +21,13 @@ function AddEvent() {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.name]: e.value });
-    console.log('formdata',formData);
+    console.log('formdata', formData);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log('This is the image (or not)', image);
-    console.log('formdata',formData);
+    console.log('formdata', formData);
     const data = new FormData();
     data.append('name', formData.name);
     data.append('location', formData.location);
@@ -46,11 +46,6 @@ function AddEvent() {
 
   const fileSelectedHandler = (e) => {
     setFormData({ ...formData, images: [...e.target.files] });
-  };
-
-  const sx = {
-    width: '500px',
-    color: 'black',
   };
 
   return (
