@@ -43,7 +43,7 @@ export const deleteEvent = (id) => async (dispatch) => {
 
 export const addEvent = (event) => async (dispatch) => {
   try {
-    await api('events', 'POST', JSON.stringify(event));
+    await api('events', 'POST', event, '');
     dispatch({
       type: 'ADD_EVENT',
       payload: event,

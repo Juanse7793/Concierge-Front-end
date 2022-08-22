@@ -8,59 +8,70 @@ import { addEvent } from '../redux/reducers/events';
 
 function AddEvent() {
   // eslint-disable-next-line camelcase
-  const [startDate, setStart] = useState();
-  // eslint-disable-next-line camelcase
-  const [endDate, setEnd] = useState();
-  const [name, setName] = useState();
-  const [location, setLocation] = useState();
-  const [price, setPrice] = useState();
+  const [formData, setFormData] = useState({
+    name: '',
+    location: '',
+    price: 0,
+    images: [],
+    start_date: '',
+    end_date: '',
+  });
 
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(addEvent({
-      start_date: startDate, end_date: endDate, name, location, price,
-    }));
-    setName('');
-    setLocation('');
-    setPrice('');
-    setStart('');
-    setEnd('');
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.name]: e.value });
+    console.log('formdata', formData);
   };
 
-  const sx = {
-    width: '500px',
-    color: 'black',
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log('This is the image (or not)', image);
+    console.log('formdata', formData);
+    const data = new FormData();
+    data.append('name', formData.name);
+    data.append('location', formData.location);
+    data.append('price', formData.price);
+    data.append('start_date', formData.start_date);
+    data.append('end_date', formData.end_date);
+    formData.images.forEach((el, i) => {
+      data.append('images[]', formData.images[i], el);
+    });
+
+    console.log('data!');
+    console.log('data', data, data.get('name'));
+
+    dispatch(addEvent(data));
+  };
+
+  const fileSelectedHandler = (e) => {
+    setFormData({ ...formData, images: [...e.target.files] });
   };
 
   return (
-    <div className="add-event-main">
+    <section className="add-event-main">
       <div className="add-event-header">
         <h1 className="add-event-title">Add Event</h1>
       </div>
       <form className="add-event-form" onSubmit={handleSubmit}>
         <TextField
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          sx={sx}
-          id="event-name-input"
+          name="name"
+          value={formData.name}
+          onChange={(e) => handleChange(e.currentTarget)}
           label="Event Name"
           margin="normal"
         />
         <TextField
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-          sx={sx}
-          id="event-location-input"
+          name="location"
+          value={formData.location}
+          onChange={(e) => handleChange(e.currentTarget)}
           label="Event Location"
           margin="normal"
         />
         <TextField
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          sx={sx}
-          id="event-price-input"
+          name="price"
+          value={formData.price}
+          onChange={(e) => handleChange(e.currentTarget)}
           label="Event Price"
           margin="normal"
         />
@@ -68,30 +79,23 @@ function AddEvent() {
           <h2 className="add-event-dates-title">Event dates</h2>
         </div>
         <TextField
-          // eslint-disable-next-line camelcase
-          value={startDate}
-          onChange={(e) => setStart(e.target.value)}
-          sx={sx}
-          id="event-start-input"
+          name="start_date"
+          value={formData.start_date}
+          onChange={(e) => handleChange(e.currentTarget)}
           label="Event Start"
           margin="normal"
         />
         <TextField
-          // eslint-disable-next-line camelcase
-          value={endDate}
-          onChange={(e) => setEnd(e.target.value)}
-          sx={sx}
-          id="event-end-input"
+          name="end_date"
+          value={formData.end_date}
+          onChange={(e) => handleChange(e.currentTarget)}
           label="Event End"
           margin="normal"
         />
-        <div className="add-event-images">
-          <h2 className="add-event-images-title">Event images</h2>
-        </div>
-        <input type="file" multiple id="new-event-image" />
+        <input type="file" multiple id="new-event-image" name="images" onInput={fileSelectedHandler} accept="image/*" />
         <input type="submit" id="submit-event" value="Add Event" />
       </form>
-    </div>
+    </section>
   );
 }
 
