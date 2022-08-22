@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Sidebar from '../components/Sidebar';
 import ReserveText from '../components/ReserveText';
+import { addReservation } from '../redux/reducers/users';
 
 const ReservePage = () => {
   const { id } = useParams();
+  const user = useSelector((state) => state.user.user);
   const event = useSelector((state) => state.events.events).find(
     (event) => event.id.toString() === id,
   );
@@ -18,6 +20,8 @@ const ReservePage = () => {
     city: '',
     start,
     end,
+    user_id: user.id,
+    event_id: event.id,
   });
   const setInputData = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -25,6 +29,14 @@ const ReservePage = () => {
 
   const [dateRange, setDateRange] = useState([start, end]);
   const [startDate, endDate] = dateRange;
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addReservation(Number(user.id), input));
+    setInput({ city: '', start: startDate, end: endDate });
+  };
 
   return (
     <div className="row">
@@ -34,7 +46,7 @@ const ReservePage = () => {
           <h1>{`BOOK A TICKET TO ${event.name.toUpperCase()}`}</h1>
           <hr />
           <ReserveText />
-          <form className="inputs">
+          <form className="inputs" onSubmit={handleSubmit}>
             <input
               type="text"
               name="city"
