@@ -1,6 +1,6 @@
-const api = 'http://localhost:3000/api/v1/';
+const api = 'https://ancient-lake-57758.herokuapp.com/api/v1/';
 
-export default async (url = '', method = 'POST', body = '') => {
+export default async (url = '', method = 'POST', body = null) => {
   try {
     const response = await fetch(`${api}${url}`, {
       method,
@@ -8,12 +8,12 @@ export default async (url = '', method = 'POST', body = '') => {
       body,
     }).then((res) => res.json());
     if (response.status === 201 || !response.error) {
-      // console.log('res: ', response);
+      console.log('res: ', response);
       return response;
     }
-    // console.error('error: ', response.error);
+    console.error('error: ', response.error);
   } catch (err) {
-    // console.error('err: ', err);
+    console.error('err: ', err);
     return err;
   }
   return false;

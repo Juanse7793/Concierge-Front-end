@@ -1,31 +1,29 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import Sidebar from '../components/Sidebar';
 import ReserveText from '../components/ReserveText';
+import { InputText, DateRange } from '../components/Inputs';
 import { addReservation } from '../redux/reducers/users';
+import '../css/ReservePage.css';
 
 const ReservePage = () => {
   const { id } = useParams();
   const user = useSelector((state) => state.user.user);
-  const event = useSelector((state) => state.events.events).find(
-    (event) => event.id.toString() === id,
-  );
+  const { events, loading } = useSelector((state) => state.events);
 
-  const start = new Date(event.start_date);
-  const end = new Date(event.end_date);
+  const event = events.find((event) => event.id.toString() === id);
+  const start = event ? new Date(event.start_date) : new Date();
+  const end = event ? new Date(event.end_date) : new Date();
+
   const [input, setInput] = useState({
     city: '',
-    start,
-    end,
     user_id: user.id,
-    event_id: event.id,
+    event_id: id,
   });
   const setInputData = (e) => {
-    setInput({ ...input, [e.target.name]: e.target.value });
+    setInput({ ...input, [e.name]: e.value });
   };
+  console.log('try', event, input);
 
   const [dateRange, setDateRange] = useState([start, end]);
   const [startDate, endDate] = dateRange;
@@ -34,49 +32,34 @@ const ReservePage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addReservation(Number(user.id), input));
-    setInput({ city: '', start: startDate, end: endDate });
+    // setInput({ ...input, start: startDate, end: endDate });
+    dispatch(addReservation(Number(user.id), { ...input, start: startDate, end: endDate }));
   };
 
   return (
-    <div className="row">
-      <Sidebar />
-      <section className="column reserve background">
+    <section className="column reserve background">
+      {loading ? (
+        <h1>Please wait...</h1>
+      ) : (
         <div className="center">
-          <h1>{`BOOK A TICKET TO ${event.name.toUpperCase()}`}</h1>
+          <h1 className="black-glow">{`BOOK A TICKET TO ${event.name.toUpperCase()}`}</h1>
           <hr />
           <ReserveText />
           <form className="inputs" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="city"
-              placeholder="City"
-              onChange={(e) => setInputData(e)}
-              required
-              autoComplete="off"
-              className="pill border"
-            />
-            <DatePicker
-              selectsRange
+            <InputText text="City" value={input.city} func={(e) => setInputData(e.target)} />
+            <DateRange
               minDate={start}
               maxDate={end}
               startDate={startDate}
               endDate={endDate}
-              onChange={(update) => {
-                setDateRange(update);
-              }}
-              className="pill border"
+              func={(e) => setDateRange(e)}
             />
-            <input
-              type="submit"
-              name="submit"
-              value="Book Now"
-              className="pill white"
-            />
+            <input type="submit" value="Book Now" className="pill white" />
           </form>
+          <Link to={`/events/${id}`} className="pill semi prev white moving">◁</Link>
         </div>
-      </section>
-    </div>
+      )}
+    </section>
   );
 };
 

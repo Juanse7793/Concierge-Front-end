@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteEvent } from '../redux/reducers/events';
-import Sidebar from '../components/Sidebar';
+import ListItem from '../components/ListItem';
 
 const EventsPage = () => {
   const events = useSelector((state) => state.events.events);
@@ -8,23 +8,22 @@ const EventsPage = () => {
 
   const deleteEventHandler = (e) => {
     dispatch(deleteEvent(Number(e.target.id)));
-    // deleteEvent(Number(e.target.id));
   };
 
   return (
-    <div className="row">
-      <Sidebar />
-      <section>
-        {events.map((event) => (
-          <ul key={event.id}>
-            <li className="row event-name">
-              <p>{event.name}</p>
-              <button type="button" className="delete-btn" id={event.id} onClick={deleteEventHandler}>Delete</button>
-            </li>
-          </ul>
-        ))}
-      </section>
-    </div>
+    <section>
+      {events.map((event) => (
+        <ul key={event.id}>
+          <ListItem
+            name={event.name}
+            start={event.start_date}
+            end={event.end_date}
+            id={event.id}
+            deleteFunc={deleteEventHandler}
+          />
+        </ul>
+      ))}
+    </section>
   );
 };
 

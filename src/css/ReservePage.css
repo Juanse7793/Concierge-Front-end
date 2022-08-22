@@ -1,0 +1,35 @@
+
+/* Reserve Page */
+.reserve {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  min-height: 500px;
+}
+
+.center {
+  max-width: 477px;
+}
+
+hr {
+  color: white;
+  width: 80%;
+}
+
+.inputs {
+  --left: 7rem;
+}
+
+.border {
+  border: 2px solid white;
+  margin: 1rem;
+  margin-top: 0;
+  width: 315px;
+}
+
+.reserve .prev {
+  position: absolute;
+  top: 75%;
+  left: 0;
+}

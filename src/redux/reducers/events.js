@@ -9,7 +9,7 @@ const eventReducer = (state = initState, action) => {
     case 'FETCHING_EVENT':
       return {
         ...state,
-        loaded: true,
+        loading: true,
       };
     case 'COMPLETE_EVENT':
       return { events: action.payload };
@@ -28,9 +28,18 @@ const eventReducer = (state = initState, action) => {
   }
 };
 
+export const fetchEvents = () => async (dispatch) => {
+  dispatch({ type: 'FETCHING_EVENT' });
+  await api('events', 'GET')
+    .then((data) => {
+      dispatch({ type: 'COMPLETE_EVENT', payload: data });
+    })
+    .catch(() => dispatch({ type: 'FETCHING_EVENT' }));
+};
+
 export const deleteEvent = (id) => async (dispatch) => {
   try {
-    await api(`events/${id}`, 'DELETE', '');
+    await api(`events/${id}`, 'DELETE');
     dispatch({
       type: 'DELETE_EVENT',
       payload: id,
@@ -47,21 +56,11 @@ export const addEvent = (event) => async (dispatch) => {
     dispatch({
       type: 'ADD_EVENT',
       payload: event,
-    });
+    }).then(fetchEvents());
     return true;
   } catch (err) {
     return err;
   }
-};
-
-export const fetchEvent = () => async (dispatch) => {
-  dispatch({ type: 'FETCHING_EVENT' });
-  await fetch('http://localhost:3000/api/v1/events')
-    .then((response) => response.json())
-    .then((data) => {
-      dispatch({ type: 'COMPLETE_EVENT', payload: data });
-    })
-    .catch(() => dispatch({ type: 'FETCHING_EVENT' }));
 };
 
 export default eventReducer;

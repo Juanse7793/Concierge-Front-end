@@ -1,37 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Concierge from './concierge.png';
 import { signOut } from '../redux/reducers/users';
+import '../css/Sidebar.css';
 
 function Sidebar() {
+  const linkClass = 'semi prev pill link no-shadow';
+  const [hidden, setHidden] = useState(true);
+  const toggle = () => setHidden(!hidden);
+  const toggleClass = (hidden) => (hidden ? 'hidden green' : 'white');
+
   const dispatch = useDispatch();
   const signOutHandler = () => { dispatch(signOut()); };
 
   return (
-    <div className="side-bar-container column">
-      <div className="side-bar-header">
+    <>
+      <button className={`burger-div pill ${toggleClass(!hidden)}`} type="button" onClick={toggle}>
+        <div className="burger top" />
+        <div className="burger mid" />
+        <div className="burger bot" />
+      </button>
+      <nav className={`column ${toggleClass(hidden)}`}>
         <img src={Concierge} alt="Concierge Logo" />
-      </div>
-      <div className="side-bar-body">
-        <a href="/" className="body-titles"><h3>Home</h3></a>
-        <a href="/my-reservations" className="body-titles"><h3>My Reservations</h3></a>
-        <a href="/new-event" className="body-titles"><h3>New Event</h3></a>
-        <a href="/all-events" className="body-titles"><h3>Remove Event</h3></a>
-        <a href="/about" className="body-titles"><h3>About</h3></a>
-        <button type="submit" className="sign-out" onClick={signOutHandler}><h3>Sign Out</h3></button>
-      </div>
-      <div className="side-bar-footer">
-        <div className="social-media">
-          <GitHubIcon />
-          <LinkedInIcon />
-          <TwitterIcon />
+        <div className="side-bar-body column">
+          <NavLink to="/" className={linkClass} onClick={toggle}>Home</NavLink>
+          <NavLink to="/my-reservations" className={linkClass} onClick={toggle}>My Reservations</NavLink>
+          <NavLink to="/new-event" className={linkClass} onClick={toggle}>New Event</NavLink>
+          <NavLink to="/all-events" className={linkClass} onClick={toggle}>Remove Event</NavLink>
+          <NavLink to="/about" className={linkClass} onClick={toggle}>About</NavLink>
+          <button type="submit" className={`${linkClass} red`} onClick={signOutHandler}>Sign Out</button>
         </div>
-        <p>&copy; Concierge 2022</p>
-      </div>
-    </div>
+        <footer>
+          <div className="social-media">
+            <GitHubIcon />
+            <LinkedInIcon />
+            <TwitterIcon />
+          </div>
+          <small>&copy; Concierge 2022</small>
+        </footer>
+      </nav>
+    </>
   );
 }
 
