@@ -12,8 +12,8 @@ const ReservePage = () => {
     (event) => event.id.toString() === id,
   );
 
-  const start = new Date(event.start);
-  const end = new Date(event.end);
+  const start = new Date(event.start_date);
+  const end = new Date(event.end_date);
   const [input, setInput] = useState({
     city: '',
     start,
@@ -34,7 +34,7 @@ const ReservePage = () => {
           <h1>{`BOOK A TICKET TO ${event.name.toUpperCase()}`}</h1>
           <hr />
           <ReserveText />
-          <div className="inputs">
+          <form className="inputs">
             <input
               type="text"
               name="city"
@@ -50,11 +50,18 @@ const ReservePage = () => {
               maxDate={end}
               startDate={startDate}
               endDate={endDate}
-              onChange={(update) => { setDateRange(update); }}
+              onChange={(update) => {
+                setDateRange(update);
+              }}
               className="pill border"
             />
-            <input type="submit" name="submit" value="Book Now" className="pill white" />
-          </div>
+            <input
+              type="submit"
+              name="submit"
+              value="Book Now"
+              className="pill white"
+            />
+          </form>
         </div>
       </section>
     </div>
