@@ -1,5 +1,6 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteReservation } from '../redux/reducers/users';
+import { deleteReservation, signIn } from '../redux/reducers/users';
 import ListItem from '../components/ListItem';
 
 const ReservationsPage = () => {
@@ -10,6 +11,10 @@ const ReservationsPage = () => {
   const deleteReservationHandler = (e) => {
     dispatch(deleteReservation(Number(user.id), Number(e.target.id)));
   };
+
+  useEffect(() => {
+    dispatch(signIn(user.name));
+  }, [dispatch, user.name]);
 
   return (
     <section>

@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ReserveText from '../components/ReserveText';
 import { InputText, DateRange } from '../components/Inputs';
-import { addReservation } from '../redux/reducers/users';
+import { addReservation, signIn } from '../redux/reducers/users';
 import '../css/ReservePage.css';
 
 const ReservePage = () => {
@@ -20,6 +20,13 @@ const ReservePage = () => {
     user_id: user.id,
     event_id: id,
   });
+
+  const adding = useSelector((state) => state.user.adding);
+  if (adding) {
+    signIn(user.name);
+    window.location.href = `/events/${id}`;
+  }
+
   const setInputData = (e) => {
     setInput({ ...input, [e.name]: e.value });
   };
