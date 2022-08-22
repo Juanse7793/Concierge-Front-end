@@ -33,7 +33,7 @@ const ReservePage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // setInput({ ...input, start: startDate, end: endDate });
-    dispatch(addReservation(Number(user.id), {...input, start: startDate, end: endDate}));
+    dispatch(addReservation(Number(user.id), { ...input, start: startDate, end: endDate }));
   };
 
   return (

@@ -118,7 +118,7 @@ export const addReservation = (id, reservation) => async (dispatch) => {
     await api(`users/${id}/reservations`, 'POST', JSON.stringify(reservation));
     dispatch({
       type: 'ADD_RESERVATION',
-      payload: {...reservation},
+      payload: { ...reservation },
     });
     return true;
   } catch (err) {
