@@ -30,7 +30,7 @@ const eventReducer = (state = initState, action) => {
 
 export const deleteEvent = (id) => async (dispatch) => {
   try {
-    await api(`events/${id}`, 'DELETE', '');
+    await api(`events/${id}`, 'DELETE');
     dispatch({
       type: 'DELETE_EVENT',
       payload: id,
@@ -47,7 +47,7 @@ export const addEvent = (event) => async (dispatch) => {
     dispatch({
       type: 'ADD_EVENT',
       payload: event,
-    }).then(dispatch({ type: 'FETCHING_EVENT' }));
+    }).then(fetchEvents());
     return true;
   } catch (err) {
     return err;
@@ -56,8 +56,7 @@ export const addEvent = (event) => async (dispatch) => {
 
 export const fetchEvents = () => async (dispatch) => {
   dispatch({ type: 'FETCHING_EVENT' });
-  await fetch('http://localhost:3000/api/v1/events')
-    .then((response) => response.json())
+  await api('events', 'GET')
     .then((data) => {
       dispatch({ type: 'COMPLETE_EVENT', payload: data });
     })

@@ -17,7 +17,7 @@ ListItem.propTypes = {
   name: PropTypes.string.isRequired,
   start: PropTypes.string.isRequired,
   end: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   deleteFunc: PropTypes.func.isRequired,
 };
 

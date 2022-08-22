@@ -17,14 +17,13 @@ const ReservePage = () => {
 
   const [input, setInput] = useState({
     city: '',
-    start,
-    end,
     user_id: user.id,
-    event_id: event.id,
+    event_id: id,
   });
   const setInputData = (e) => {
     setInput({ ...input, [e.name]: e.value });
   };
+  console.log('try', event, input);
 
   const [dateRange, setDateRange] = useState([start, end]);
   const [startDate, endDate] = dateRange;
@@ -33,8 +32,8 @@ const ReservePage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addReservation(Number(user.id), input));
-    setInput({ city: '', start: startDate, end: endDate });
+    // setInput({ ...input, start: startDate, end: endDate });
+    dispatch(addReservation(Number(user.id), {...input, start: startDate, end: endDate}));
   };
 
   return (

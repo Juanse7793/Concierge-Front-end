@@ -18,10 +18,11 @@ const ReservationsPage = () => {
           {events.length <= 0 ? (<li className="row">Please wait...</li>) : (
             <ListItem
               name={events.find((event) => event.id === reservation.event_id).name}
-              start={reservation.start_date}
-              end={reservation.end_date}
+              start={new Date(reservation.start).toDateString()}
+              end={new Date(reservation.end).toDateString()}
               id={reservation.id}
               deleteFunc={deleteReservationHandler}
+              key={reservation.id}
             />
           )}
         </ul>

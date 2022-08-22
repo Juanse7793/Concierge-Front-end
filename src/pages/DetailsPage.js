@@ -41,6 +41,9 @@ const DetailsPage = () => {
                 <ListRow caption="Travel Expenses" text={`$${event.price}`} />
                 <ListRow caption="Housing and Food" text="$100" />
                 <ListRow caption="Total" text={`$${event.price + 100}`} />
+                <ListRow caption="Location" text={event.location} />
+                <ListRow caption="Start Date" text={event.start_date} />
+                <ListRow caption="End Date" text={event.end_date} />
                 <ListRow
                   caption="Duration"
                   text={`${

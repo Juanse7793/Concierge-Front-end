@@ -91,8 +91,7 @@ export const signUp = (name) => async (dispatch) => {
 };
 
 export const signIn = (name) => async (dispatch) => {
-  await fetch('http://localhost:3000/api/v1/users')
-    .then((response) => response.json())
+  await api('users', 'GET')
     .then((list) => list.filter((user) => user.name === name))
     .then((data) => {
       if (data.length > 0) dispatch({ type: 'SIGNED_IN', payload: data[0] });
@@ -103,7 +102,7 @@ export const signIn = (name) => async (dispatch) => {
 
 export const deleteReservation = (id1, id2) => async (dispatch) => {
   try {
-    await api(`users/${id1}/reservations/${id2}`, 'DELETE', '');
+    await api(`users/${id1}/reservations/${id2}`, 'DELETE');
     dispatch({
       type: 'DELETE_RESERVATION',
       payload: id2,
@@ -119,7 +118,7 @@ export const addReservation = (id, reservation) => async (dispatch) => {
     await api(`users/${id}/reservations`, 'POST', JSON.stringify(reservation));
     dispatch({
       type: 'ADD_RESERVATION',
-      payload: reservation,
+      payload: {...reservation},
     });
     return true;
   } catch (err) {

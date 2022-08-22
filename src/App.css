@@ -158,6 +158,7 @@ li.row {
 
 /* Events/Reservations Page */
 .list {
+  align-items: baseline;
   margin: 1rem;
   cursor: auto;
 }
