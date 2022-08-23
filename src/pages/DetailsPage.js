@@ -46,10 +46,7 @@ const DetailsPage = () => {
                 <ListRow caption="End Date" text={event.end_date} />
                 <ListRow
                   caption="Duration"
-                  text={`${
-                    (new Date(event.end) - new Date(event.start))
-                      / (1000 * 60 * 60 * 24) || 1
-                  } days`}
+                  text={`${(new Date(event.end_date) - new Date(event.start_date)) / (1000 * 60 * 60 * 24) + 1} days`}
                 />
               </ul>
             </div>

@@ -4,7 +4,8 @@
 
 > At CONCIERGE it’s easy to find and book your dream all-inclusive event package so you can experience what makes all-inclusive events the ultimate stress-free escape. See an incredible selection of destinations and deals with a few clicks, and more!
 
-![screenshot](./app_screenshot.png)
+![screenshot](./public/images/screenshot-login.jpeg)
+![screenshot](./public/images/screenshot-diverse.jpeg)
 
 You can find it's back-end at https://github.com/Juanse7793/Final-Capstone-Back-end.
 
