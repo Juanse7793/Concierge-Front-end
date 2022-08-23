@@ -1,46 +1,80 @@
-# Getting Started with Create React App and Redux
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Concierge (Front End)
 
-## Available Scripts
+> At CONCIERGE it’s easy to find and book your dream all-inclusive event package so you can experience what makes all-inclusive events the ultimate stress-free escape. See an incredible selection of destinations and deals with a few clicks, and more!
 
-In the project directory, you can run:
+![screenshot](./app_screenshot.png)
 
-### `npm start`
+You can find it's back-end at https://github.com/Juanse7793/Final-Capstone-Back-end.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Built With
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Ruby on Rails
+- React
+- Redux
+- Cloudinary
+- RSwag
+- Rspec
+- Jest
 
-### `npm test`
+## Live Demo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Live Demo Link](https://concierge-jtz.netlify.app/)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To get a local copy up and running follow these simple example steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
+- None
+### Setup
+- Clone this repo using `git clone https://github.com/Juanse7793/Final-Capstone-Front-end`
+### Install
+- Run `npm install` then run `npm start` to launch your local copy.
+### Usage
+- You can use this website to create and delete new and fun events. You can also reserve you own personal trip to these events in a few simple steps. Enjoy!
+### Run tests
+- run `npm test`
+### Deployment
+This app has been deployed to the following location:
+https://concierge-jtz.netlify.app/
 
-### `npm run eject`
+## Authors
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+👤 **Humaira Zaman**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- GitHub: [@qwibbler](https://github.com/qwibbler)
+- Twitter: [@hmemaz](https://twitter.com/hmemaz)
+- LinkedIn: [Humaira Zaman](https://www.linkedin.com/in/hmemaz1994/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+👤 **Tafara Mafemba**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- GitHub: (https://github.com/tafaramafemba)
+- Twitter: (https://twitter.com/the_real_you___)
+- LinkedIn: (https://www.linkedin.com/in/tafara-mafemba-4b82a0156/)
 
-## Learn More
+👤 **Juan Sebastian Sotomayor**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- GitHub: [@Juanse7793](https://github.com/Juanse7793)
+- Twitter: [@Juanse77930](https://twitter.com/Juanse77930)
+- LinkedIn: [Juan Sebastian Sotomayor](https://linkedin.com/in/juan-sebastian-sotomayor-2bb395198)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- This project was based on the [Vespa - Responsive Redesign](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) template built by [Murat Korkmaz](https://www.behance.net/muratk) under the Creative Commons License.
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
