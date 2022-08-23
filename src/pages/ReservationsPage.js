@@ -17,7 +17,8 @@ const ReservationsPage = () => {
   }, [dispatch]);
 
   const eventIds = events.map((event) => event.id);
-  const filteredRes = user.reservations.filter((reservation) => eventIds.includes(reservation.event_id));
+  const filteredRes = user.reservations.filter((reservation) => eventIds
+    .includes(reservation.event_id));
 
   return (
     <section>
