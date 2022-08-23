@@ -17,13 +17,9 @@ const eventReducer = (state = initState, action) => {
       return state;
     case 'DELETE_EVENT': {
       const user = JSON.parse(sessionStorage.getItem('user'));
-      const newReservations = user.reservations.filter(
-        (reservation) => reservation.id !== Number(action.payload),
-      );
-      sessionStorage.setItem(
-        'user',
-        JSON.stringify({ ...user, reservations: newReservations }),
-      );
+      const newRes = user.reservations
+        .filter((res) => Number(res.event_id) !== Number(action.payload));
+      sessionStorage.setItem('user', JSON.stringify({ ...user, reservations: newRes }));
       return {
         ...state,
         events: state.events.filter((event) => event.id !== Number(action.payload)),
