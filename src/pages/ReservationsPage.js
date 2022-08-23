@@ -1,5 +1,6 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteReservation } from '../redux/reducers/users';
+import { deleteReservation, signIn } from '../redux/reducers/users';
 import ListItem from '../components/ListItem';
 
 const ReservationsPage = () => {
@@ -11,20 +12,26 @@ const ReservationsPage = () => {
     dispatch(deleteReservation(Number(user.id), Number(e.target.id)));
   };
 
+  useEffect(() => {
+    dispatch(signIn(user.name));
+  }, [dispatch]);
+
+  const eventIds = events.map((event) => event.id);
+  const filteredRes = user.reservations.filter((reservation) => eventIds
+    .includes(reservation.event_id));
+
   return (
     <section>
-      {user.reservations.map((reservation) => (
-        <ul key={reservation.id}>
-          {events.length <= 0 ? (<li className="row">Please wait...</li>) : (
-            <ListItem
-              name={events.find((event) => event.id === reservation.event_id).name}
-              start={new Date(reservation.start).toDateString()}
-              end={new Date(reservation.end).toDateString()}
-              id={reservation.id}
-              deleteFunc={deleteReservationHandler}
-              key={reservation.id}
-            />
-          )}
+      {filteredRes.map((res) => (
+        <ul key={res.id}>
+          <ListItem
+            name={events.find((event) => event.id === res.event_id).name}
+            start={new Date(res.start).toDateString()}
+            end={new Date(res.end).toDateString()}
+            id={res.id}
+            deleteFunc={deleteReservationHandler}
+            key={res.id}
+          />
         </ul>
       ))}
     </section>

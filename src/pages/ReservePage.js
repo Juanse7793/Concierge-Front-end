@@ -3,27 +3,35 @@ import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ReserveText from '../components/ReserveText';
 import { InputText, DateRange } from '../components/Inputs';
-import { addReservation } from '../redux/reducers/users';
+import { addReservation, signIn } from '../redux/reducers/users';
 import '../css/ReservePage.css';
 
 const ReservePage = () => {
   const { id } = useParams();
   const user = useSelector((state) => state.user.user);
-  const { events, loading } = useSelector((state) => state.events);
+  const event = useSelector((state) => state.events.events).find(
+    (event) => event.id.toString() === id,
+  );
 
-  const event = events.find((event) => event.id.toString() === id);
-  const start = event ? new Date(event.start_date) : new Date();
-  const end = event ? new Date(event.end_date) : new Date();
-
+  const start = new Date(event.start_date);
+  const end = new Date(event.end_date);
   const [input, setInput] = useState({
     city: '',
+    start,
+    end,
     user_id: user.id,
-    event_id: id,
+    event_id: event.id,
   });
+
+  const adding = useSelector((state) => state.user.adding);
+  if (adding) {
+    signIn(user.name);
+    window.location.href = `/events/${id}`;
+  }
+
   const setInputData = (e) => {
     setInput({ ...input, [e.name]: e.value });
   };
-  console.log('try', event, input);
 
   const [dateRange, setDateRange] = useState([start, end]);
   const [startDate, endDate] = dateRange;
@@ -32,13 +40,13 @@ const ReservePage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setInput({ ...input, start: startDate, end: endDate });
     dispatch(addReservation(Number(user.id), { ...input, start: startDate, end: endDate }));
+    setInput({ city: '', start: startDate, end: endDate });
   };
 
   return (
     <section className="column reserve background">
-      {loading ? (
+      {!event ? (
         <h1>Please wait...</h1>
       ) : (
         <div className="center">

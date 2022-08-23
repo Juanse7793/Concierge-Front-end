@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import EventCard from '../components/EventCard';
+import { fetchEvents } from '../redux/reducers/events';
 import '../css/MainPage.css';
 
 const MainPage = () => {
@@ -17,6 +18,11 @@ const MainPage = () => {
 
   const events = useSelector((state) => state.events.events);
   const [slice, setSlice] = useState(0);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchEvents());
+  }, [dispatch]);
+
   const sliceEvents = events.slice(slice, slice + step);
 
   const isFirst = slice <= 0;

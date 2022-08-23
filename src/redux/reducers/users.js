@@ -50,6 +50,11 @@ const userReducer = (state = initState, action) => {
         },
       };
     }
+    case 'ADDING_RESERVATION':
+      return {
+        ...state,
+        adding: false,
+      };
     case 'ADD_RESERVATION': {
       const newReservations = [...state.user.reservations, action.payload];
       sessionStorage.setItem(
@@ -58,9 +63,10 @@ const userReducer = (state = initState, action) => {
       );
       return {
         ...state,
+        adding: true,
         user: {
           ...state.user,
-          reservations: newReservations,
+          reservations: action.payload,
         },
       };
     }
@@ -115,10 +121,11 @@ export const deleteReservation = (id1, id2) => async (dispatch) => {
 
 export const addReservation = (id, reservation) => async (dispatch) => {
   try {
+    dispatch({ type: 'ADDING_RESERVATION' });
     await api(`users/${id}/reservations`, 'POST', JSON.stringify(reservation));
     dispatch({
       type: 'ADD_RESERVATION',
-      payload: { ...reservation },
+      payload: reservation,
     });
     return true;
   } catch (err) {
