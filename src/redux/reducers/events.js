@@ -1,4 +1,4 @@
-import api from './api';
+import api, { apiUrl } from './api';
 
 const initState = {
   events: [],
@@ -15,11 +15,20 @@ const eventReducer = (state = initState, action) => {
       return { events: action.payload };
     default:
       return state;
-    case 'DELETE_EVENT':
+    case 'DELETE_EVENT': {
+      const user = JSON.parse(sessionStorage.getItem('user'));
+      const newReservations = user.reservations.filter(
+        (reservation) => reservation.id !== Number(action.payload),
+      );
+      sessionStorage.setItem(
+        'user',
+        JSON.stringify({ ...user, reservations: newReservations }),
+      );
       return {
         ...state,
         events: state.events.filter((event) => event.id !== Number(action.payload)),
       };
+    }
     case 'ADDING_EVENT':
       return {
         ...state,
@@ -59,7 +68,7 @@ export const deleteEvent = (id) => async (dispatch) => {
 export const addEvent = (event) => async (dispatch) => {
   try {
     dispatch({ type: 'ADDING_EVENT' });
-    await api('events', 'POST', event);
+    await fetch(`${apiUrl}events`, { method: 'POST', body: event });
     dispatch({
       type: 'ADD_EVENT',
       payload: event,

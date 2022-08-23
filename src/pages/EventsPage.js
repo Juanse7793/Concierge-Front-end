@@ -1,13 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteEvent } from '../redux/reducers/events';
+import { signIn } from '../redux/reducers/users';
 import ListItem from '../components/ListItem';
 
 const EventsPage = () => {
+  const user = useSelector((state) => state.user.user);
   const events = useSelector((state) => state.events.events);
   const dispatch = useDispatch();
 
   const deleteEventHandler = (e) => {
     dispatch(deleteEvent(Number(e.target.id)));
+    signIn(user.name);
   };
 
   return (

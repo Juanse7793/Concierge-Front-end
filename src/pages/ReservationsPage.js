@@ -14,7 +14,7 @@ const ReservationsPage = () => {
 
   useEffect(() => {
     dispatch(signIn(user.name));
-  }, [dispatch, user.name]);
+  }, [dispatch]);
 
   return (
     <section>
