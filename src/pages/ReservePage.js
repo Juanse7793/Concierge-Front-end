@@ -32,7 +32,6 @@ const ReservePage = () => {
   const setInputData = (e) => {
     setInput({ ...input, [e.name]: e.value });
   };
-  console.log('try', event, input, start, end);
 
   const [dateRange, setDateRange] = useState([start, end]);
   const [startDate, endDate] = dateRange;
