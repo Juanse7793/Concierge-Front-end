@@ -1,4 +1,4 @@
-export const apiUrl = 'https://ancient-lake-57758.herokuapp.com/api/v1/';
+export const apiUrl = 'https://concierge-jtz.herokuapp.com/api/v1/';
 
 export default async (url = '', method = 'POST', body = null, headers = { 'Content-Type': 'application/json' }) => {
   try {

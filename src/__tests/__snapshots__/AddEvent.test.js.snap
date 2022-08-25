@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<section
+  className="add-event-main background column"
+>
+  <form
+    className="add-event-form column"
+    onSubmit={[Function]}
+  >
+    <h1
+      className="add-event-title black-glow"
+    >
+      Add Event
+    </h1>
+    <div
+      className="out "
+    >
+      <input
+        autoComplete="off"
+        className="pill green white-border"
+        id="name"
+        name="name"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        type="text"
+        value=""
+      />
+      <label
+        htmlFor="name"
+      >
+        Name
+      </label>
+    </div>
+    <div
+      className="out "
+    >
+      <input
+        autoComplete="off"
+        className="pill green white-border"
+        id="location"
+        name="location"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        type="text"
+        value=""
+      />
+      <label
+        htmlFor="location"
+      >
+        Location
+      </label>
+    </div>
+    <div
+      className="out "
+    >
+      <input
+        autoComplete="off"
+        className="pill green white-border"
+        id="price"
+        name="price"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        type="text"
+        value=""
+      />
+      <label
+        htmlFor="price"
+      >
+        Price
+      </label>
+    </div>
+    <div
+      className="out focus"
+    >
+      <div
+        className="react-datepicker-wrapper"
+      >
+        <div
+          className="react-datepicker__input-container"
+        >
+          <input
+            className="pill green white-border"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            readOnly={false}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <label>
+        Dates
+      </label>
+    </div>
+    <h2
+      className="add-event-images-title black-glow"
+    >
+      Event Images
+    </h2>
+    <input
+      accept="image/*"
+      id="new-event-image"
+      multiple={true}
+      name="images"
+      onInput={[Function]}
+      type="file"
+    />
+    <input
+      className="pill white"
+      type="submit"
+      value="Add Event"
+    />
+  </form>
+</section>
+`;

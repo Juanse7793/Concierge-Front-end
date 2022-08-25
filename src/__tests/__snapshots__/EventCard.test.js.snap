@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+Array [
+  <a
+    className="event-card column"
+    href="/events/1"
+    onClick={[Function]}
+  >
+    <div
+      className="circle"
+    >
+      <img
+        alt=""
+        className="eventImage"
+        src="images/event"
+      />
+    </div>
+    <h3
+      className="event-card-title"
+    >
+      Event Name
+    </h3>
+    <p
+      className="event-card-details"
+    >
+      Event Location
+    </p>
+    <p
+      className="event-card-details"
+    >
+      $10
+    </p>
+  </a>,
+  ",",
+]
+`;

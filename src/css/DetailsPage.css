@@ -35,7 +35,20 @@
   text-align: right;
 }
 
-li.row :first-child {
+.right .pill {
+  display: flex;
+  padding: 0.75rem;
+}
+
+.right .pill :first-child {
+  margin-right: 1rem;
+}
+
+.right .pill :last-child {
+  margin-left: 1rem;
+}
+
+li.row :first-child { /* stylelint-disable-line no-descending-specificity */
   margin-right: 3rem;
 }
 
@@ -56,7 +69,7 @@ li.row :first-child {
   }
 
   .right h1 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     text-align: center;
     text-shadow:
       -1px 1px 5px var(--theme-lime),
