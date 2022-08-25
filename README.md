@@ -42,6 +42,11 @@ To get a local copy up and running follow these simple example steps:
 This app has been deployed to the following location:
 https://concierge-jtz.netlify.app/
 
+### Kanban Board
+- [Kanban](https://github.com/users/Juanse7793/projects/2/views/1)
+- ![screenshot](https://user-images.githubusercontent.com/96317674/183961621-dc659e79-6ddb-46aa-b2c2-72c9b87842b4.png)
+- This project was made by the following three devs:
+
 ## Authors
 
 👤 **Humaira Zaman**
