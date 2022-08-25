@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<li
+  className="row pill list"
+>
+  <p>
+    name
+  </p>
+  <div
+    className="row"
+  >
+    <small>
+      start ~ end
+    </small>
+    <button
+      className="red pill link"
+      id={1}
+      onClick={[Function]}
+      type="button"
+    >
+      Delete
+    </button>
+  </div>
+</li>
+`;
