@@ -1,19 +1,15 @@
+import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
-import renderer from 'react-test-renderer';
-import Sidebar from '../components/Sidebar';
+import AddEvent from '../pages/AddEvent';
 
-// jest.mock
 const mockStore = configureMockStore();
-const store = mockStore({ signedIn: true });
+const store = mockStore({ events: { adding: false } });
 
-it('should match snapshot', () => {
+it('matches snapshot', () => {
   const component = renderer.create(
     <Provider store={store}>
-      <Router>
-        <Sidebar />
-      </Router>
+      <AddEvent />
     </Provider>,
   );
   const tree = component.toJSON();

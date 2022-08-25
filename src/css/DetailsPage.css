@@ -48,7 +48,7 @@
   margin-left: 1rem;
 }
 
-li.row :first-child {
+li.row :first-child { /* stylelint-disable-line no-descending-specificity */
   margin-right: 3rem;
 }
 
@@ -79,6 +79,8 @@ li.row :first-child {
   }
 
   .right ul {
-    display: none;
+    background-color: var(--theme-lime);
+    color: black;
+    border: var(--border);
   }
 }

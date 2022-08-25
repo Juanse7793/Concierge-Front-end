@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<section
+  className="column"
+>
+  <div
+    className="title-box"
+  >
+    <h1
+      className="title green-glow"
+    >
+      EXCITING NEW EVENTS!
+    </h1>
+    <h2
+      className="subtitle"
+    >
+      Please select an event to begin:
+    </h2>
+  </div>
+  <div
+    className="events-list row"
+  >
+    <button
+      className="pill semi prev green"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      ◁
+    </button>
+    <div
+      className="events-list row transit"
+    >
+      <a
+        className="event-card column"
+        href="/events/1"
+        onClick={[Function]}
+      >
+        <div
+          className="circle"
+        >
+          <img
+            alt=""
+            className="eventImage"
+            src="images/foo.jpg"
+          />
+        </div>
+        <h3
+          className="event-card-title"
+        >
+          foo
+        </h3>
+        <p
+          className="event-card-details"
+        >
+          loc
+        </p>
+        <p
+          className="event-card-details"
+        >
+          $123
+        </p>
+      </a>
+      <a
+        className="event-card column"
+        href="/events/2"
+        onClick={[Function]}
+      >
+        <div
+          className="circle"
+        >
+          <img
+            alt=""
+            className="eventImage"
+            src="images/bar.jpg"
+          />
+        </div>
+        <h3
+          className="event-card-title"
+        >
+          bar
+        </h3>
+        <p
+          className="event-card-details"
+        >
+          ation
+        </p>
+        <p
+          className="event-card-details"
+        >
+          $123
+        </p>
+      </a>
+    </div>
+    <button
+      className="pill semi next green"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      ▷
+    </button>
+  </div>
+</section>
+`;

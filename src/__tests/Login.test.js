@@ -1,18 +1,17 @@
+import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
-import renderer from 'react-test-renderer';
-import Sidebar from '../components/Sidebar';
+import Login from '../pages/Login';
 
-// jest.mock
 const mockStore = configureMockStore();
-const store = mockStore({ signedIn: true });
+const store = mockStore({ user: { error: false } });
 
-it('should match snapshot', () => {
+it('matches snapshot', () => {
   const component = renderer.create(
     <Provider store={store}>
       <Router>
-        <Sidebar />
+        <Login />
       </Router>
     </Provider>,
   );
