@@ -39,17 +39,29 @@ function AboutPage() {
               <h3>Tafara Mafemba</h3>
               <img src={Tafara} alt="Concierge Logo" />
               <p>Web developer and designer.</p>
-              <GitHubIcon />
-              <LinkedInIcon />
-              <TwitterIcon />
+              <a className="about-icons" href="https://github.com/tafaramafemba" target="_blank" rel="noreferrer">
+                <GitHubIcon />
+              </a>
+              <a className="about-icons" href="https://github.com/the_real_you___" target="_blank" rel="noreferrer">
+                <LinkedInIcon />
+              </a>
+              <a className="about-icons" href="https://github.com/tafara-mafemba-4b82a0156" target="_blank" rel="noreferrer">
+                <TwitterIcon />
+              </a>
             </div>
             <div className="authors-div-body-item">
-              <h3>Zaman Humaira</h3>
+              <h3>Humaira Zaman</h3>
               <img src={Zaman} alt="Concierge Logo" />
               <p>Web developer and designer.</p>
-              <GitHubIcon />
-              <LinkedInIcon />
-              <TwitterIcon />
+              <a className="about-icons" href="https://github.com/qwibbler" target="_blank" rel="noreferrer">
+                <GitHubIcon />
+              </a>
+              <a className="about-icons" href="https://www.linkedin.com/in/hmemaz1994/" target="_blank" rel="noreferrer">
+                <LinkedInIcon />
+              </a>
+              <a className="about-icons" href="https://twitter.com/hmemaz" target="_blank" rel="noreferrer">
+                <TwitterIcon />
+              </a>
             </div>
           </div>
         </div>
