@@ -62,14 +62,13 @@
 
 .event-card-details {
   margin: 0;
-  font-size: 0;
-  opacity: 0;
+  opacity: 0.3;
   transition: all 1s ease-in-out;
 }
 
 .event-card:hover .event-card-details {
   font-size: 1rem;
-  opacity: 0.3;
+  opacity: 0.7;
 }
 
 @media (max-width: 768px) {
