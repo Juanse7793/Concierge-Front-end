@@ -1,0 +1,42 @@
+.out {
+  position: relative;
+  margin: 1rem;
+  margin-top: 0;
+}
+
+.out input {
+  border: 2px solid white;
+  margin: 0;
+  width: 315px;
+}
+
+.out label {
+  position: absolute;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Tahoma, sans-serif;
+  text-transform: uppercase;
+  top: calc(1rem + 2px);
+  left: var(--left);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.out.focus label {
+  cursor: pointer;
+  font-size: small;
+  font-family: var(--heading-font);
+  left: calc(var(--left) - 1rem);
+  top: -0.1rem;
+  background: var(--theme-lime);
+  line-height: 0.3;
+  padding: 0 0.2rem;
+}
+
+.react-datepicker__day--in-range,
+.react-datepicker__day--in-selecting-range {
+  background-color: var(--theme-lime) !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #b6e222 !important;
+}
