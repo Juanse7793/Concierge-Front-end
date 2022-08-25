@@ -4,7 +4,7 @@ nav {
   justify-content: space-between;
   border-right: #8c8c8c 1px solid;
   min-height: 100vh;
-  width: 20vw;
+  max-width: 20vw;
 }
 
 nav.green {
@@ -16,14 +16,13 @@ nav img {
 }
 
 .side-bar-body {
-  align-items: flex-start;
   text-align: left;
+  margin-left: 1rem;
 }
 
-.side-bar-footer small {
-  font-size: small;
-  color: var(--theme-dark-grey);
-  margin: 4px;
+.side-bar-body .link {
+  border-radius: 0;
+  margin-bottom: 0.25rem;
 }
 
 .link.pill {
@@ -46,6 +45,11 @@ nav img {
 footer {
   color: black;
   margin: 1rem 0;
+}
+
+small {
+  font-size: small;
+  color: var(--theme-dark-grey);
 }
 
 .burger-div {
@@ -91,11 +95,11 @@ footer {
     z-index: 100;
     position: fixed;
     background-color: white;
-    width: min(250px, 100vw); /* stylelint-disable-line csstree/validator */
+    max-width: 100vw;
     height: 100vh;
     overflow: hidden auto;
     box-shadow: 0 0 500px 100px var(--theme-lime);
-    transition: all 2s ease-in-out;
+    transition: all 1s ease-in-out;
   }
 
   nav.hidden {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { useSelector } from 'react-redux';
 import ListRow from '../components/ListRow';
 import '../css/DetailsPage.css';
@@ -51,7 +52,9 @@ const DetailsPage = () => {
               </ul>
             </div>
             <Link to="./reserve" className={`pill ${wide ? 'green' : 'white'}`}>
+              <SettingsOutlinedIcon />
               Reserve
+              <span>▷</span>
             </Link>
           </div>
         </>

@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="out "
+>
+  <input
+    autoComplete="off"
+    className="pill green white-border"
+    id="name"
+    name="name"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    required={false}
+    type="text"
+    value="Concierge"
+  />
+  <label
+    htmlFor="name"
+  >
+    name
+  </label>
+</div>
+`;
+
+exports[`matches snapshot 2`] = `
+<div
+  className="out focus"
+>
+  <div
+    className="react-datepicker-wrapper"
+  >
+    <div
+      className="react-datepicker__input-container"
+    >
+      <input
+        className="pill green white-border"
+        disabled={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        readOnly={false}
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <label>
+    Dates
+  </label>
+</div>
+`;

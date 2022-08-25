@@ -11,9 +11,7 @@ const MainPage = () => {
   const [width, setWidth] = useState(window.innerWidth);
   window.addEventListener('resize', () => { setWidth(window.innerWidth); });
   const wide = width > 768;
-  // 20vw: Sidebar, 172px buttons
   const availableWidth = (width * 0.8) - 172;
-  // MinWidth 250px, Margin etc 64px
   const step = wide ? Math.floor(availableWidth / (250 + 64)) : 1;
 
   const events = useSelector((state) => state.events.events);

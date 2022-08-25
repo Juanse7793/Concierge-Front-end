@@ -9,7 +9,7 @@ import { signOut } from '../redux/reducers/users';
 import '../css/Sidebar.css';
 
 function Sidebar() {
-  const linkClass = 'semi prev pill link no-shadow';
+  const linkClass = 'pill link no-shadow';
   const [hidden, setHidden] = useState(true);
   const toggle = () => setHidden(!hidden);
   const toggleClass = (hidden) => (hidden ? 'hidden green' : 'white');
