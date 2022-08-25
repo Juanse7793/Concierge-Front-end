@@ -48,6 +48,7 @@
   margin-left: 1rem;
 }
 
+li.row small,
 li.row :first-child { /* stylelint-disable-line no-descending-specificity */
   margin-right: 3rem;
 }

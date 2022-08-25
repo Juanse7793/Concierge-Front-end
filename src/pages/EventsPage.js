@@ -15,6 +15,9 @@ const EventsPage = () => {
 
   return (
     <section>
+      <div className="title-box">
+        <h1 className="title green-glow">All Events</h1>
+      </div>
       {events.map((event) => (
         <ul key={event.id}>
           <ListItem
@@ -22,6 +25,7 @@ const EventsPage = () => {
             start={event.start_date}
             end={event.end_date}
             id={event.id}
+            location={event.location}
             deleteFunc={deleteEventHandler}
           />
         </ul>

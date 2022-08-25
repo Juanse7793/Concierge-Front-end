@@ -17,15 +17,19 @@ const ReservationsPage = () => {
   }, [dispatch]);
 
   const eventIds = events.map((event) => event.id);
-  const filteredRes = user.reservations.filter((reservation) => eventIds
-    .includes(reservation.event_id));
+  const filteredRes = user.reservations ? user.reservations.filter((reservation) => eventIds
+    .includes(reservation.event_id)) : [];
 
   return (
     <section>
-      {filteredRes.map((res) => (
+      <div className="title-box">
+        <h1 className="title green-glow">My Reservations</h1>
+      </div>
+      {filteredRes.length > 0 ? (filteredRes.map((res) => (
         <ul key={res.id}>
           <ListItem
             name={events.find((event) => event.id === res.event_id).name}
+            location={events.find((event) => event.id === res.event_id).location}
             start={new Date(res.start).toDateString()}
             end={new Date(res.end).toDateString()}
             id={res.id}
@@ -33,7 +37,9 @@ const ReservationsPage = () => {
             key={res.id}
           />
         </ul>
-      ))}
+      ))) : (
+        <li className="row pill list">There are currently no reservations.</li>
+      )}
     </section>
   );
 };
